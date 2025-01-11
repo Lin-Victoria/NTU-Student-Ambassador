@@ -115,7 +115,7 @@ body {
     align-items: center;
     justify-content: start;
     position: relative;
-    height: 90%; /* 全螢幕高度 */
+    height: 100%; /* 全螢幕高度 */
     padding: 20px;
     background-color: #fff;
     text-align: center;
