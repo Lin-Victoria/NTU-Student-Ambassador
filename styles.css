@@ -181,15 +181,17 @@ body {
 .subtopics {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 這樣子標題會水平居中 */
+    align-items: center;
     justify-content: space-around; /* 子標題等距排列 */
     flex-wrap: wrap; /* 如果空間不足，允許換行 */
     margin-top: 20px;
-    position: relative; /* 改為 relative，避免脫離文檔流 */
+    width: 100%; /* 保證 subtopics 區域不會超出父容器 */
+    box-sizing: border-box; /* 計算寬度時包含邊距和邊框 */
+    padding: 0 10px; /* 增加內邊距以防止內容靠邊 */
 }
 
 .subtopics h3 {
-    text-align: center; /* 使子標題文字居中 */
+    text-align: center;
     font-size: 2rem;
     color: #333; /* 標題顏色 */
     cursor: pointer; /* 鼠標變為指針，暗示可點擊 */
