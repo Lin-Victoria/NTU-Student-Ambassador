@@ -200,7 +200,6 @@ body {
 ul {
     font-size: 1.2rem; /* 列表文字大小 */
     margin: 10px 0 20px; /* 上方和下方的間距 */
-    padding-left: 20px; /* 左側縮排，對齊美觀 */
 }
 
 ul li {
