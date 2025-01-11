@@ -179,10 +179,10 @@ body {
 
 /* 子標題樣式 */
 .subtopics {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute；
     justify-content: space-around; /* 子標題等距排列 */
     flex-wrap: wrap; /* 如果空間不足，允許換行 */
     margin-top: 20px;
