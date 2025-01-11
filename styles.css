@@ -140,14 +140,14 @@ body {
 }
 
 
-/* 子頁面段落樣式 */
 .subpage p {
     margin-top: 50px; /* 向上移動段落文字 */
     font-size: 1.2rem; /* 段落字體大小 */
     line-height: 1.6; /* 行間距 */
     color: #333; /* 深灰色文字 */
     text-align: center; /* 文字左右對齊 */
-    padding: 0 100px; /* 增加左右空白，避免內容貼邊 */
+    padding: 0 20px; /* 減少左右空白，避免內容貼邊 */
+    box-sizing: border-box; /* 包含 padding 和 border 在內計算元素總寬度 */
 }
 
 /* 子頁內容容器調整 */
