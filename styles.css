@@ -164,7 +164,7 @@ body {
 img.about-image, img.student-image {
     display: block; /* 確保圖片是區塊元素 */
     margin: 20px auto; /* 上下居中，水平置中 */
-    max-width: 90%; /* 圖片寬度不超過父容器 */
+    max-width: 75%; /* 圖片寬度不超過父容器 */
     height: auto; /* 確保圖片按比例縮放 */
 }
 
