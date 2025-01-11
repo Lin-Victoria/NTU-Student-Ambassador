@@ -248,6 +248,11 @@ ul li {
 }
 /* 手機樣式：讓選單佔滿螢幕 */
 @media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
     .side-menu {
         width: 100%; /* 選單寬度為螢幕寬度 */
     }
@@ -270,11 +275,11 @@ ul li {
     }
 
     h2, h3 {
-        font-size: 1.5rem; /* 減小標題字體大小 */
+        font-size: 1.2rem; /* 減小標題字體大小 */
     }
 
     p, ul li {
-        font-size: 1rem; /* 減小段落和列表的字體大小 */
+        font-size: 0.8rem; /* 減小段落和列表的字體大小 */
         line-height: 1.4; /* 減少行間距 */
     }
 }
