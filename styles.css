@@ -278,7 +278,7 @@ ul li {
         font-size: 1.2rem; /* 減小標題字體大小 */
     }
 
-    p, ul li {
+    p,ul, ul li {
         font-size: 0.8rem; /* 減小段落和列表的字體大小 */
         line-height: 1.4; /* 減少行間距 */
     }
