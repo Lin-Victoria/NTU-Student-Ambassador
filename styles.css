@@ -199,11 +199,12 @@ body {
 ul {
     font-size: 1.2rem; /* 列表文字大小 */
     margin: 10px 0 20px; /* 上方和下方的間距 */
-    padding-left: 20px; /* 左側縮排，對齊美觀 */
+    padding-left: 10px; /* 左側縮排，減少縮排使圓圈靠近文字 */
+    list-style-position: inside; /* 列表符號放在內部，靠近文字 */
 }
 
 ul li {
-    text-align: left;
+    text-align: left; /* 讓列表項目左對齊 */
     font-size: 1.2rem; /* 列表文字大小 */
     line-height: 1.5; /* 行高，增加可讀性 */
     color: #333; /* 列表文字顏色 */
