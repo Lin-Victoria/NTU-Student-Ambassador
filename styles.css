@@ -1,0 +1,254 @@
+/* 基本樣式設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+/* 封面圖片及標題樣式 */
+.header {
+    position: relative;
+    text-align: center;
+}
+
+.cover-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Menu icon 樣式 */
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* 側邊選單樣式 */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* 初始在畫面外 */
+    height: 100%;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.side-menu.open {
+    right: 0; /* 點擊後滑入畫面 */
+}
+
+/* 選單連結樣式 */
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* 滑鼠移上時的背景色變化 */
+}
+
+/* 固定標題區域樣式 */
+.subpage-header {
+    position: fixed; /* 固定在頁面頂部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #8a2a2b; /* 深藍背景色 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 加陰影讓標題更突出 */
+    z-index: 1000;
+}
+
+/* 標誌樣式 */
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* 標誌高度 */
+    margin-right: 1px; /* 標誌與文字之間的距離 */
+}
+
+/* 子頁面全螢幕樣式 */
+.subpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+    height: 90%; /* 全螢幕高度 */
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    box-sizing: border-box; /* 包含 padding 在內計算大小 */
+}
+
+/* 大標題的樣式 */
+.subpage h2 {
+    margin: 0; /* 確保沒有多餘的距離 */
+    font-size: 4rem;
+    color: #00274d;
+}
+
+/* 底線樣式 */
+.divider {
+    position: absolute; /* 絕對定位，基於 h2 的相對定位 */
+    margin: 100px;
+    align-items: center;
+    height: 2px;
+    width: 50%; /* 底線寬度與標題一致 */
+    background-color: #00274d; /* 深藍色 */
+}
+
+
+/* 子頁面段落樣式 */
+.subpage p {
+    margin-top: 50px; /* 向上移動段落文字 */
+    font-size: 1.2rem; /* 段落字體大小 */
+    line-height: 1.6; /* 行間距 */
+    color: #333; /* 深灰色文字 */
+    text-align: center; /* 文字左右對齊 */
+    padding: 0 100px; /* 增加左右空白，避免內容貼邊 */
+}
+
+/* 子頁內容容器調整 */
+.subpage {
+    margin-top: 100px; /* 與固定標題的距離 */
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    height: calc(100vh - 100px); /* 子頁內容高度調整 */
+    overflow-y: auto; /* 長內容時可滾動 */
+}
+/* 關於我們圖片樣式 */
+.about-image {
+    display: block;
+    margin: 20px auto; /* 上下間距，水平置中 */
+    max-width: 75%;    /* 圖片寬度，保持自適應 */
+    height: auto;      /* 確保圖片比例不變 */
+    border-radius: 10px; /* 圓角圖片 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+}
+
+.student-image {
+    display: block;
+    margin: 20px auto; /* 上下間距，水平置中 */
+    max-width: 75%;    /* 圖片寬度，保持自適應 */
+    height: auto;      /* 確保圖片比例不變 */
+    border-radius: 10px; /* 圓角圖片 */
+}
+
+/* 子標題樣式 */
+.subtopics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* 子標題等距排列 */
+    flex-wrap: wrap; /* 如果空間不足，允許換行 */
+    margin-top: 20px;
+}
+
+.subtopics h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333; /* 標題顏色 */
+    cursor: pointer; /* 鼠標變為指針，暗示可點擊 */
+    transition: color 0.3s ease; /* 滑過時的顏色過渡效果 */
+}
+
+/* 列表樣式 */
+ul {
+    font-size: 1.2rem; /* 列表文字大小 */
+    margin: 10px 0 20px; /* 上方和下方的間距 */
+    padding-left: 20px; /* 左側縮排，對齊美觀 */
+}
+
+ul li {
+    text-align: left;
+    font-size: 1.2rem; /* 列表文字大小 */
+    line-height: 1.5; /* 行高，增加可讀性 */
+    color: #333; /* 列表文字顏色 */
+}
+
+.subtopics h3:hover {
+    color: #0078d7; /* 滑過時變為藍色 */
+}
+
+
+.subpage form {
+    margin-top: 20px;
+}
+
+.subpage input, .subpage button {
+    font-size: 1rem;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* 社群媒體區塊 */
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 社群項目間距 */
+    margin-top: 50px;
+}
+
+/* 單個社群媒體項目 */
+.social-item {
+    text-align: center;
+}
+
+/* 社群媒體圖片樣式 */
+.social-item img {
+    width: 100px; /* 調整圖片大小 */
+    height: 100px;
+    border-radius: 5px; /* 圖片略帶圓角 */
+    object-fit: cover; /* 圖片等比例縮放 */
+}
+
+/* 社群媒體文字樣式 */
+.social-item p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+}

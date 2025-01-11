@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禮賓學生專區</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 固定標題區域 -->
+    <header class="subpage-header">
+        <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="Logo" class="logo">
+        </a>
+    </header>
+
+
+     <!-- 子頁面內容 -->
+    <div class="subpage">
+        <h2>禮賓學生專區</h2>
+        <div class="divider"></div> <!-- 分隔線 -->
+        <p>請輸入您的電話號碼後三碼以進入任務點數統計表：</p>
+        <form id="student-form" onsubmit="return redirectToGoogleSheet()">
+            <input type="text" id="student-id" placeholder="輸入電話號碼後三碼" required>
+            <button type="submit">確認</button>
+        <p>*如有問題，請洽詢幹部林雨彤 (在Line大群上take我)*</p>
+        </p>
+        </form>
+    </div>
+
+    <script>
+     const studentLinks = {};
+
+    // 讀取 CSV 並填充到 studentLinks
+    async function loadCSV() {
+        const response = await fetch('student_links.csv'); // 確保 student_links.csv 在同一目錄中
+        const csvText = await response.text();
+        const rows = csvText.split('\n');
+        
+        for (const row of rows) {
+            const [studentId, link] = row.split(','); // 逗號分隔
+            if (studentId && link) {
+                studentLinks[studentId.trim()] = link.trim();
+            }
+        }
+        
+        // 在這裡檢查 studentLinks 的內容
+        console.log("Loaded studentLinks:", studentLinks);
+    }
+
+        // 跳轉到相應的 Google 試算表
+        async function redirectToGoogleSheet() {
+            const studentId = document.getElementById("student-id").value.trim();
+
+            // 檢查學號是否存在
+            if (studentId in studentLinks) {
+                const googleSheetURL = studentLinks[studentId];
+                alert("學號：" + studentId + "，即將進入專區");
+                window.open(googleSheetURL, "_blank");
+            } else {
+                alert("找不到該電話號碼的連結，請確認是否正確輸入！");
+            }
+
+            return false; // 防止表單提交後重新載入頁面
+        }
+
+        // 初始化 CSV 加載
+        loadCSV();
+    </script>
+</body>
+</html>
+</html>

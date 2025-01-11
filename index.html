@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺灣大學國際禮賓學生計畫</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 封面部分 -->
+    <div class="header">
+        <img src="cover.jpg" alt="封面圖片" class="cover-image">
+        <h1 class="title">臺灣大學國際禮賓學生計畫<br>Your Door To NTU</h1>
+        
+        <button class="menu-icon" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- 側邊滑動選單 -->
+    <div id="menu" class="side-menu">
+        <!-- 連結到其他子網站 -->
+        <a href="about.html">關於我們</a>
+        <a href="students.html">禮賓學生專區</a>
+        <a href="links.html">重要連結</a>
+    </div>
+
+    <script>
+        // 控制選單滑動
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
