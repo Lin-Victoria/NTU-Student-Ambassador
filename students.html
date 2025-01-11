@@ -29,43 +29,39 @@
     </div>
 
     <script>
-        async function loadCSV() {
-            const csvURL = "https://drive.google.com/uc?export=download&id=1BPr8o7GD9QJxeGHxHzMQUCrJdLUvJxuT";
-            try {
-                const response = await fetch(csvURL);
-                const csvData = await response.text();
-                const rows = csvData.split("\n").map(row => row.split(","));
-                
-                // 初始化學號對應表
-                window.studentLinks = {};
-                rows.forEach(([id, link]) => {
-                    if (id && link) {
-                        window.studentLinks[id.trim()] = link.trim();
-                    }
-                });
-    
-                console.log("學號對應表已加載:", window.studentLinks);
-            } catch (error) {
-                console.error("載入 CSV 時發生錯誤:", error);
+     const studentLinks = {};
+    // 讀取 CSV 並填充到 studentLinks
+    async function loadCSV() {
+        const response = await fetch('student_links.csv'); // 確保 student_links.csv 在同一目錄中
+        const csvText = await response.text();
+        const rows = csvText.split('\n');
+        
+        for (const row of rows) {
+            const [studentId, link] = row.split(','); // 逗號分隔
+            if (studentId && link) {
+                studentLinks[studentId.trim()] = link.trim();
             }
         }
-    
+        
+        // 在這裡檢查 studentLinks 的內容
+        console.log("Loaded studentLinks:", studentLinks);
+    }
+        // 跳轉到相應的 Google 試算表
         async function redirectToGoogleSheet() {
-            const studentId = document.getElementById("student-id").value;
-            if (window.studentLinks && studentId in window.studentLinks) {
-                const googleSheetURL = window.studentLinks[studentId];
-                alert(`學號: ${studentId}，即將進入專區`);
+            const studentId = document.getElementById("student-id").value.trim();
+            // 檢查學號是否存在
+            if (studentId in studentLinks) {
+                const googleSheetURL = studentLinks[studentId];
+                alert("學號：" + studentId + "，即將進入專區");
                 window.open(googleSheetURL, "_blank");
             } else {
-                alert("學號不存在或無法讀取連結！");
+                alert("找不到該電話號碼的連結，請確認是否正確輸入！");
             }
-            return false;
+            return false; // 防止表單提交後重新載入頁面
         }
-    
-        // 在頁面載入時加載 CSV
-        document.addEventListener("DOMContentLoaded", loadCSV);
+        // 初始化 CSV 加載
+        loadCSV();
     </script>
-    
 </body>
 </html>
 </html>
