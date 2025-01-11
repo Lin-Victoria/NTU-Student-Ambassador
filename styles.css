@@ -198,21 +198,26 @@ body {
     transition: color 0.3s ease; /* 滑過時的顏色過渡效果 */
 }
 
-/* 列表樣式 */
+/* 列表區域的調整 */
 ul {
-    font-size: 1.2rem; /* 列表文字大小 */
-    margin: 10px 0 20px; /* 上方和下方的間距 */
+    width: 100%; /* 保證 ul 容器寬度不會超出 */
+    padding-left: 20px; /* 確保列表有適當的縮排 */
+    margin: 10px 0; /* 增加上下間距 */
+    list-style-type: disc; /* 使用圓點符號 */
 }
 
+/* 列表項目調整 */
 ul li {
-    text-align: left;
-    font-size: 1.2rem; /* 列表文字大小 */
-    line-height: 1.5; /* 行高，增加可讀性 */
-    color: #333; /* 列表文字顏色 */
+    font-size: 1.2rem; /* 列表字型大小 */
+    line-height: 1.6; /* 行高，讓內容更清晰 */
+    color: #333; /* 文字顏色 */
+    word-wrap: break-word; /* 防止文字超出容器 */
 }
 
-.subtopics h3:hover {
-    color: #0078d7; /* 滑過時變為藍色 */
+/* 避免內容跑到右邊，確保容器內部文本不會超出 */
+.subpage p, .subtopics ul {
+    max-width: 100%; /* 讓段落和列表寬度始終保持在容器內 */
+    box-sizing: border-box; /* 計算寬度時包括邊距 */
 }
 
 
