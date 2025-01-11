@@ -246,3 +246,42 @@ ul li {
     color: #333;
     font-weight: bold;
 }
+/* 手機樣式：讓選單佔滿螢幕 */
+@media (max-width: 768px) {
+    .side-menu {
+        width: 100%; /* 選單寬度為螢幕寬度 */
+    }
+
+    .side-menu a {
+        font-size: 1.2rem; /* 選單字體稍微縮小 */
+        padding: 10px 15px; /* 減少內邊距 */
+    }
+}
+
+/* 手機樣式 */
+@media (max-width: 768px) {
+    .subpage {
+        padding: 10px; /* 減少邊距，讓內容更貼合小螢幕 */
+    }
+
+    img.about-image, img.student-image {
+        max-width: 100%; /* 圖片佔滿容器寬度 */
+        margin: 10px 0; /* 減少上下間距 */
+    }
+
+    h2, h3 {
+        font-size: 1.5rem; /* 減小標題字體大小 */
+    }
+
+    p, ul li {
+        font-size: 1rem; /* 減小段落和列表的字體大小 */
+        line-height: 1.4; /* 減少行間距 */
+    }
+}
+/* 手機樣式：將多欄內容改為單欄 */
+@media (max-width: 768px) {
+    .subtopics {
+        flex-direction: column; /* 改為垂直排列 */
+        align-items: stretch; /* 讓每個子元素佔滿寬度 */
+    }
+}
