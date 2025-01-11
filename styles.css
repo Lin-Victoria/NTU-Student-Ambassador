@@ -182,6 +182,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute；
     justify-content: space-around; /* 子標題等距排列 */
     flex-wrap: wrap; /* 如果空間不足，允許換行 */
     margin-top: 20px;
@@ -189,7 +190,6 @@ body {
 
 .subtopics h3 {
     text-align: center;
-    align-items: center;
     font-size: 2rem;
     color: #333; /* 標題顏色 */
     cursor: pointer; /* 鼠標變為指針，暗示可點擊 */
