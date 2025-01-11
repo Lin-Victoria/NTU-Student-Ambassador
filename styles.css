@@ -160,21 +160,13 @@ body {
     overflow-y: auto; /* 長內容時可滾動 */
 }
 /* 關於我們圖片樣式 */
-.about-image {
-    display: block;
-    margin: 20px auto; /* 上下間距，水平置中 */
-    max-width: 75%;    /* 圖片寬度，保持自適應 */
-    height: auto;      /* 確保圖片比例不變 */
-    border-radius: 10px; /* 圓角圖片 */
+/* 圖片樣式修正 */
+img.about-image, img.student-image {
+    display: block; /* 確保圖片是區塊元素 */
+    margin: 20px auto; /* 上下居中，水平置中 */
+    max-width: 90%; /* 圖片寬度不超過父容器 */
+    height: auto; /* 確保圖片按比例縮放 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
-}
-
-.student-image {
-    display: block;
-    margin: 20px auto; /* 上下間距，水平置中 */
-    max-width: 75%;    /* 圖片寬度，保持自適應 */
-    height: auto;      /* 確保圖片比例不變 */
-    border-radius: 10px; /* 圓角圖片 */
 }
 
 /* 子標題樣式 */
