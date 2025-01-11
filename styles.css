@@ -182,9 +182,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around; /* 子標題等距排列 */
-    flex-wrap: wrap; /* 如果空間不足，允許換行 */
+    justify-content: flex-start; /* 讓子標題區域靠上排列 */
     margin-top: 20px;
+    width: 100%; /* 保證 subtopics 區域不會超出父容器 */
+    padding: 0 10px; /* 增加內邊距防止內容靠邊 */
+    box-sizing: border-box; /* 包括邊距和邊框 */
 }
 
 .subtopics h3 {
