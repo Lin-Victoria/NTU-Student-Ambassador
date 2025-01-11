@@ -189,6 +189,7 @@ body {
 
 .subtopics h3 {
     text-align: center;
+    align-items: center;
     font-size: 2rem;
     color: #333; /* 標題顏色 */
     cursor: pointer; /* 鼠標變為指針，暗示可點擊 */
