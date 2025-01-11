@@ -166,7 +166,6 @@ img.about-image, img.student-image {
     margin: 20px auto; /* 上下居中，水平置中 */
     max-width: 90%; /* 圖片寬度不超過父容器 */
     height: auto; /* 確保圖片按比例縮放 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
 }
 
 /* 子標題樣式 */
