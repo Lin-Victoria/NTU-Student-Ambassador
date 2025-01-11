@@ -31,7 +31,7 @@ body {
 
 /* Menu icon 樣式 */
 .menu-icon {
-    position: absolute;
+    position: relative;
     top: 20px;
     right: 20px;
     font-size: 2rem;
