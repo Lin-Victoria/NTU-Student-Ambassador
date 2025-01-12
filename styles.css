@@ -281,6 +281,9 @@ ul li {
     .subpage h2 {
         font-size: 1.4rem; /* 減小標題字體大小 */
     }
+    .divider {
+    width: 30%;
+    }
     .subpage p {
         font-size: 0.8rem; /* 減小段落和列表的字體大小 */
         line-height: 1.4; /* 減少行間距 */
