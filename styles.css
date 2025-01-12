@@ -222,7 +222,7 @@ ul li {
 .social-media {
     display: flex; /* 使用 Flexbox 讓圖示並排 */
     width: 100%;
-    gap: 5px; /* 圖示之間的間距 */
+    gap: 1px; /* 圖示之間的間距 */
     margin-top: 30px; /* 與上方內容的距離 */
 }
 
@@ -267,7 +267,7 @@ ul li {
 /* 手機樣式 */
 @media (max-width: 768px) {
     .subpage {
-        padding: 10px; /* 減少邊距，讓內容更貼合小螢幕 */
+        margin: 10px 0;
         width: 100%;
     }
 
@@ -279,7 +279,7 @@ ul li {
         font-size: 1.4rem; /* 減小標題字體大小 */
     }
     .divider {
-         margin: 30px;
+         margin: 35px;
          width: 30%;
     }
     .subpage p {
