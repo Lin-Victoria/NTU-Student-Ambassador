@@ -222,7 +222,7 @@ ul li {
 .social-media {
     display: flex;
     justify-content: center;
-    gap: 10px; /* 社群項目間距 */
+    gap: 5px; /* 社群項目間距 */
     margin-top: 50px;
     width: 100%;
 }
