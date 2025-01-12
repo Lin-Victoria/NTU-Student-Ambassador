@@ -269,6 +269,8 @@ ul li {
     .subpage {
         padding: 10px; /* 減少邊距，讓內容更貼合小螢幕 */
         align-items: stretch; /* 讓每個子元素佔滿寬度 */
+        flex-direction: column;/* 改為垂直排列 */
+        width: 100%;
     }
 
     img.about-image, img.student-image {
@@ -276,7 +278,7 @@ ul li {
         margin: 10px 0; /* 減少上下間距 */
     }
     .subpage h2 {
-        font-size: 1.2rem; /* 減小標題字體大小 */
+        font-size: 1.4rem; /* 減小標題字體大小 */
     }
     .subpage p {
         font-size: 0.8rem; /* 減小段落和列表的字體大小 */
