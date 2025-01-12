@@ -52,7 +52,7 @@
             // 檢查學號是否存在
             if (studentId in studentLinks) {
                 const googleSheetURL = studentLinks[studentId];
-                alert("學號：" + studentId + "，即將進入專區");
+                alert( "即將進入專區");
                 window.open(googleSheetURL, "_blank");
             } else {
                 alert("找不到該電話號碼的連結，請確認是否正確輸入！");
