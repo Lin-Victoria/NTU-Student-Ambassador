@@ -249,8 +249,31 @@ ul li {
 
 /* 手機樣式：讓選單佔滿螢幕 */
 @media (max-width: 768px) {
+    /* 封面調整 */
+    .header {
+        height: 100vh; /* 讓封面高度占滿整個手機螢幕 */
+        display: flex;
+        justify-content: center; /* 水平置中 */
+        align-items: center; /* 垂直置中 */
+        position: relative; /* 保持位置控制 */
+        overflow: hidden; /* 防止內容溢出 */
+    }
+
+    .cover-image {
+        width: 100%; /* 圖片寬度填滿螢幕 */
+        height: 100%; /* 圖片高度填滿螢幕 */
+        object-fit: cover; /* 確保圖片保持比例並裁剪過多部分 */
+    }
+
     .title {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* 調整標題字體大小以適配手機 */
+        position: absolute; /* 確保標題置於圖片上方 */
+        top: 50%; /* 垂直居中 */
+        left: 50%; /* 水平居中 */
+        transform: translate(-50%, -50%); /* 修正定位，使標題真正居中 */
+        text-align: center; /* 標題文字置中 */
+        padding: 10px; /* 添加些許內邊距，避免文字過於貼邊 */
+        line-height: 1.2; /* 增加文字行高，提升可讀性 */
     }
 }
 @media (max-width: 768px) {
