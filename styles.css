@@ -269,7 +269,6 @@ ul li {
     .subpage {
         padding: 10px; /* 減少邊距，讓內容更貼合小螢幕 */
         width: 100%;
-        align-items: stretch; /* 讓每個子元素佔滿寬度 */
     }
 
     img.about-image, img.student-image {
@@ -280,7 +279,7 @@ ul li {
         font-size: 1.4rem; /* 減小標題字體大小 */
     }
     .divider {
-         margin: 20px;
+         margin: 30px;
          width: 30%;
     }
     .subpage p {
@@ -305,6 +304,9 @@ ul li {
 }
 
 @media (max-width: 768px) {
+    .social-media {
+       flex-direction: column; /* 改為垂直排列 */
+    }
     .social-item img {
         width: 50px;
         height: 50px;
@@ -312,5 +314,6 @@ ul li {
 
     .social-item p {
         font-size: 0.8rem;
+        text-align: center
     }
 }
