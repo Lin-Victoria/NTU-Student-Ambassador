@@ -222,10 +222,10 @@ ul li {
 .social-media {
     display: flex;
     justify-content: center;
-    gap: 15px; /* 社群項目間距 */
+    gap: 10px; /* 社群項目間距 */
     margin-top: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* 單個社群媒體項目 */
