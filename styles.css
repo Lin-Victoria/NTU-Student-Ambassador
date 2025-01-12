@@ -222,7 +222,7 @@ ul li {
 .social-media {
     display: flex;
     justify-content: center;
-    gap: 20px; /* 社群項目間距 */
+    gap: 15px; /* 社群項目間距 */
     margin-top: 50px;
 }
 
@@ -233,9 +233,8 @@ ul li {
 
 /* 社群媒體圖片樣式 */
 .social-item img {
-    width: 100px; /* 調整圖片大小 */
-    height: 100px;
-    border-radius: 5px; /* 圖片略帶圓角 */
+    width: 90px; /* 調整圖片大小 */
+    height: 90px;
     object-fit: cover; /* 圖片等比例縮放 */
 }
 
