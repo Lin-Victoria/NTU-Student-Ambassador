@@ -157,6 +157,7 @@ body {
     text-align: center;
     background-color: #fff;
     height: calc(100vh - 100px); /* 子頁內容高度調整 */
+    width: 100%; 
     overflow-y: auto; /* 長內容時可滾動 */
 }
 /* 關於我們圖片樣式 */
@@ -290,7 +291,7 @@ ul li {
 /* 手機樣式 */
 @media (max-width: 768px) {
     .subpage {
-        align-items: stretch; /* 讓每個子元素佔滿寬度 */
+        padding: 20px 0px 20px; /* 讓每個子元素佔滿寬度 */
         width: 100%;
     }
 
