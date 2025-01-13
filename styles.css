@@ -278,7 +278,7 @@ ul li {
 }
 @media (max-width: 768px) {
     .side-menu {
-        width: 100%; /* 選單寬度為螢幕寬度 */
+        width: 80%; /* 選單寬度為螢幕寬度 */
     }
 
     .side-menu a {
