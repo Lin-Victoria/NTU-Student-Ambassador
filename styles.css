@@ -290,7 +290,7 @@ ul li {
 /* 手機樣式 */
 @media (max-width: 768px) {
     .subpage {
-        border: 20px 0px 20px;
+        margin: 40px 0px 20px;
         width: 100%;
     }
 
