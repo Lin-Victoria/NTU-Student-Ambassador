@@ -272,7 +272,7 @@ ul li {
         left: 50%; /* 水平居中 */
         transform: translate(-50%, -50%); /* 修正定位，使標題真正居中 */
         text-align: center; /* 標題文字置中 */
-        padding: 10px; /* 添加些許內邊距，避免文字過於貼邊 */
+        border: 10px; /* 添加些許內邊距，避免文字過於貼邊 */
         line-height: 1.2; /* 增加文字行高，提升可讀性 */
     }
 }
@@ -290,7 +290,7 @@ ul li {
 /* 手機樣式 */
 @media (max-width: 768px) {
     .subpage {
-        padding: 20px 0px 20px;
+        border: 20px 0px 20px;
         width: 100%;
     }
 
@@ -331,8 +331,8 @@ ul li {
        flex-direction: column; /* 改為垂直排列 */
     }
     .social-item img {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
 
     .social-item p {
