@@ -273,7 +273,7 @@ ul li {
         left: 50%; /* 水平居中 */
         transform: translate(-50%, -50%); /* 修正定位，使標題真正居中 */
         text-align: center; /* 標題文字置中 */
-        border: 10px; /* 添加些許內邊距，避免文字過於貼邊 */
+        border: 1px; /* 添加些許內邊距，避免文字過於貼邊 */
         line-height: 1.2; /* 增加文字行高，提升可讀性 */
     }
 }
