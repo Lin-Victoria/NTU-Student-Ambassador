@@ -224,7 +224,7 @@ ul li {
     display: flex; /* 使用 Flexbox 讓圖示並排 */
     width: 100%;
     gap: 1px; /* 圖示之間的間距 */
-    margin-top: 30px; /* 與上方內容的距離 */
+    margin-top: 40px; /* 與上方內容的距離 */
 }
 
 /* 單個社群媒體項目 */
