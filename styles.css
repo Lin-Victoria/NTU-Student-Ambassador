@@ -31,6 +31,7 @@ body {
 
 /* Menu icon 樣式 */
 .menu-icon {
+    margin-top: 70px; /* 確保輪播區域不會與 LOGO 重疊 */
     position: absolute;
     top: 20px;
     right: 20px;
@@ -88,7 +89,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgb(143, 42, 43);
     color: white;
     border: none;
     padding: 10px;
@@ -106,36 +107,59 @@ body {
 }
 
 
-/* 最新消息 */
 .latest-news {
-    text-align: center;
-    margin: 20px;
-}
-
-.latest-news h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.news-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .news-item {
-    background: #f0f0f0;
-    padding: 10px;
-    margin: 5px;
+    background: #f9f9f9;
     border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
-    width: 45%;
-    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .news-item:hover {
-    background: #007bff;
-    color: white;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-item .news-content {
+    padding: 15px;
+}
+
+.news-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.news-item p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.news-item a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
 }
 
 /* 社群媒體與聯絡方式 */
