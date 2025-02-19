@@ -7,9 +7,11 @@ body {
 }
 
 /* 封面圖片及標題樣式 */
-.header {
+header {
+    z-index: 10;
     position: relative;
-    text-align: center;
+    background: white; /* 確保背景不透明 */
+    padding: 10px 20px; /* 增加內邊距 */
 }
 
 .cover-image {
