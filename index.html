@@ -72,9 +72,20 @@
             </div>
         </div>
     </footer>
+    <!-- 側邊滑動選單 -->
+    <div id="menu" class="side-menu">
+        <!-- 連結到其他子網站 -->
+        <a href="about.html">關於我們</a>
+        <a href="students.html">禮賓學生專區</a>
+        <a href="links.html">重要連結</a>
+    </div>
 
-    <!-- JavaScript for Carousel -->
     <script>
+        // 控制選單滑動
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("open");
+        }
         let currentIndex = 0;
 
         function moveSlide(direction) {
