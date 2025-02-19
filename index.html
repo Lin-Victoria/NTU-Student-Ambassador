@@ -95,6 +95,30 @@
             const container = document.querySelector('.carousel-container');
             container.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+
+            // 移動圖片
+            const container = document.querySelector('.carousel-container');
+            container.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // 更新點狀進度條
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+}
+
+// 初始化點狀進度條的點擊事件
+document.querySelectorAll('.indicator').forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        moveSlide(index - currentIndex);
+    });
+});
+
     </script>
 </body>
 </html>
