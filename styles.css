@@ -41,7 +41,119 @@ body {
     cursor: pointer;
     z-index: 1000;
 }
+/* 照片輪播區 */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
 
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 500%;
+}
+
+.carousel-slide {
+    flex: 1 0 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* 最新消息 */
+.latest-news {
+    text-align: center;
+    margin: 20px;
+}
+
+.latest-news h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.news-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.news-item {
+    background: #f0f0f0;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 45%;
+    text-align: center;
+}
+
+.news-item:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* 社群媒體與聯絡方式 */
+.footer {
+    background: red;
+    color: white;
+    padding: 20px 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
 /* 側邊選單樣式 */
 .side-menu {
     position: fixed;
