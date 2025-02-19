@@ -91,7 +91,7 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgb(143, 42, 43);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
@@ -166,7 +166,7 @@ header {
 
 /* 社群媒體與聯絡方式 */
 .footer {
-    background: red;
+    background: rgb(143, 42, 43);
     color: white;
     padding: 20px 10px;
 }
