@@ -7,27 +7,67 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 封面部分 -->
-    <div class="header">
-        <img src="cover.jpg" alt="封面圖片" class="cover-image">
-        <h1 class="title">臺灣大學國際禮賓學生計畫<br>Your Door To NTU</h1>
-        
-        <button class="menu-icon" onclick="toggleMenu()">☰</button>
+    <!-- 固定標題區域 -->
+    <header class="subpage-header">
+        <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="Logo" class="logo">
+        </a>
+    </header>
+
+    <!-- 照片輪播區 -->
+    <div class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="photo1.jpg" alt="Photo 1">
+                <div class="carousel-caption">
+                    <h1>臺灣大學國際禮賓學生計畫<br>Your Door To NTU</h1>
+                </div>
+            </div>
+            <div class="carousel-slide"><img src="photo2.jpg" alt="Photo 2"></div>
+            <div class="carousel-slide"><img src="photo3.jpg" alt="Photo 3"></div>
+            <div class="carousel-slide"><img src="photo4.jpg" alt="Photo 4"></div>
+            <div class="carousel-slide"><img src="photo5.jpg" alt="Photo 5"></div>
+        </div>
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
     </div>
 
-    <!-- 側邊滑動選單 -->
-    <div id="menu" class="side-menu">
-        <!-- 連結到其他子網站 -->
-        <a href="about.html">關於我們</a>
-        <a href="students.html">禮賓學生專區</a>
-        <a href="links.html">重要連結</a>
-    </div>
+    <!-- 最新消息 -->
+    <section class="latest-news">
+        <h2>最新消息</h2>
+        <div class="news-container">
+            <div class="news-item" onclick="location.href='news1.html'">消息 1</div>
+            <div class="news-item" onclick="location.href='news2.html'">消息 2</div>
+            <div class="news-item" onclick="location.href='news3.html'">消息 3</div>
+            <div class="news-item" onclick="location.href='news4.html'">消息 4</div>
+        </div>
+    </section>
 
+    <!-- 社群媒體與聯絡方式 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <p>地址：106319 臺北市大安區羅斯福路四段1號 禮賢樓7樓</p>
+                <p>電話：+886-2-3366-2007, +886-2-2362-6801</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><img src="fb-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="ig-icon.png" alt="Instagram"></a>
+                <a href="https://www.website.com" target="_blank"><img src="web-icon.png" alt="Website"></a>
+                <a href="mailto:info@ntu.edu.tw"><img src="email-icon.png" alt="Email"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Carousel -->
     <script>
-        // 控制選單滑動
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("open");
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+            const container = document.querySelector('.carousel-container');
+            container.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
     </script>
 </body>
