@@ -67,7 +67,7 @@ header {
     justify-content: center;
 }
 
-.carousel-images {
+.carousel-slide img {
     max-width: 100%; /* 確保圖片寬度不超出 */
     max-height: 100%; /* 確保圖片高度不超出 */
     object-fit: contain; /* 讓圖片自適應比例，並完整顯示在範圍內 */
