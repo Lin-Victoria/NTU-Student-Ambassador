@@ -13,23 +13,36 @@ header {
     background: white; /* 確保背景不透明 */
     padding: 10px 20px; /* 增加內邊距 */
 }
-
-.cover-image {
+/* 固定標題區域樣式 */
+.subpage-header {
+    position: fixed; /* 固定在頁面頂部 */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100px;
+    background-color: #8a2a2b; /* 深藍背景色 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 加陰影讓標題更突出 */
+    z-index: 1000;
 }
 
-.title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+/* 標誌樣式 */
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
+
+.logo {
+    height: 50px; /* 標誌高度 */
+    margin-right: 1px; /* 標誌與文字之間的距離 */
+}
+
+
 
 /* Menu icon 樣式 */
 .menu-icon {
