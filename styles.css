@@ -157,7 +157,7 @@ body {
 
 .ntu-background {
     height: 60vh;
-    background: url('ntu-campus.jpg') center/cover no-repeat;
+    background: url('ntu.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
