@@ -1,1 +1,469 @@
+/* 基本樣式設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
 
+/* 封面圖片及標題樣式 */
+.header {
+    position: relative;
+    text-align: center;
+}
+
+/* Menu icon 樣式 */
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* 側邊選單樣式 */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* 初始在畫面外 */
+    height: 100%;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.side-menu.open {
+    right: 0; /* 點擊後滑入畫面 */
+}
+
+/* 選單連結樣式 */
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* 滑鼠移上時的背景色變化 */
+}
+
+/* 照片輪播區 */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 66vh; /* 讓照片高度占視窗的三分之二 */
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.carousel-slide {
+    flex: 1 0 100%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    max-width: 100%; /* 確保圖片寬度不超出 */
+    max-height: 100%; /* 確保圖片高度不超出 */
+    object-fit: contain; /* 讓圖片自適應比例，並完整顯示在範圍內 */
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    max-width: 80%; /* 限制標題文字寬度 */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.latest-news {
+    margin: 20px auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-item {
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.news-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-item .news-content {
+    padding: 15px;
+}
+
+.news-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.news-item p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.news-item a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+/* 社群媒體與聯絡方式 */
+.footer {
+    background: rgb(143, 43, 42);
+    color: white;
+    padding: 20px 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
+/* 固定標題區域樣式 */
+.subpage-header {
+    position: fixed; /* 固定在頁面頂部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #8a2a2b; /* 深藍背景色 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 加陰影讓標題更突出 */
+    z-index: 1000;
+}
+
+/* 標誌樣式 */
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* 標誌高度 */
+    margin-right: 1px; /* 標誌與文字之間的距離 */
+}
+
+/* 子頁面全螢幕樣式 */
+.subpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+    height: 90%; /* 全螢幕高度 */
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    box-sizing: border-box; /* 包含 padding 在內計算大小 */
+}
+
+/* 大標題的樣式 */
+.subpage h2 {
+    margin: 0; /* 確保沒有多餘的距離 */
+    font-size: 4rem;
+    color: #00274d;
+}
+
+/* 底線樣式 */
+.divider {
+    position: absolute; /* 絕對定位，基於 h2 的相對定位 */
+    margin: 100px;
+    align-items: center;
+    height: 2px;
+    width: 50%; /* 底線寬度與標題一致 */
+    background-color: #00274d; /* 深藍色 */
+}
+
+
+/* 子頁面段落樣式 */
+.subpage p {
+    margin-top: 50px; /* 向上移動段落文字 */
+    font-size: 1.2rem; /* 段落字體大小 */
+    line-height: 1.6; /* 行間距 */
+    color: #333; /* 深灰色文字 */
+    text-align: center; /* 文字左右對齊 */
+    padding: 0 100px; /* 增加左右空白，避免內容貼邊 */
+}
+
+/* 子頁內容容器調整 */
+.subpage {
+    margin-top: 100px; /* 與固定標題的距離 */
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    height: calc(100vh - 100px); /* 子頁內容高度調整 */
+    width: 100%; 
+    overflow-y: auto; /* 長內容時可滾動 */
+}
+/* 關於我們圖片樣式 */
+/* 圖片樣式修正 */
+img.about-image, img.student-image {
+    display: block; /* 確保圖片是區塊元素 */
+    margin: 20px auto; /* 上下居中，水平置中 */
+    max-width: 75%; /* 圖片寬度不超過父容器 */
+    height: auto; /* 確保圖片按比例縮放 */
+}
+
+/* 子標題樣式 */
+.subtopics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* 讓子標題區域靠上排列 */
+    margin-top: 20px;
+    width: 100%; /* 保證 subtopics 區域不會超出父容器 */
+    padding: 0 10px; /* 增加內邊距防止內容靠邊 */
+    box-sizing: border-box; /* 包括邊距和邊框 */
+}
+
+.subtopics h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333; /* 標題顏色 */
+    cursor: pointer; /* 鼠標變為指針，暗示可點擊 */
+    transition: color 0.3s ease; /* 滑過時的顏色過渡效果 */
+}
+
+/* 列表樣式 */
+ul {
+    font-size: 1.2rem; /* 列表文字大小 */
+    margin: 10px 0 20px; /* 上方和下方的間距 */
+    padding-left: 10px; /* 左側縮排，減少縮排使圓圈靠近文字 */
+    list-style-position: inside; /* 列表符號放在內部，靠近文字 */
+}
+
+ul li {
+    text-align: left; /* 讓列表項目左對齊 */
+    font-size: 1.2rem; /* 列表文字大小 */
+    line-height: 1.5; /* 行高，增加可讀性 */
+    color: #333; /* 列表文字顏色 */
+}
+
+.subtopics h3:hover {
+    color: #0078d7; /* 滑過時變為藍色 */
+}
+
+
+.subpage form {
+    margin-top: 20px;
+}
+
+.subpage input, .subpage button {
+    font-size: 1rem;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* 社群媒體區塊 */
+.social-media {
+    display: flex; /* 使用 Flexbox 讓圖示並排 */
+    width: 100%;
+    gap: 1px; /* 圖示之間的間距 */
+    margin-top: 40px; /* 與上方內容的距離 */
+}
+
+/* 單個社群媒體項目 */
+.social-item {
+    text-align: center ;
+}
+
+/* 社群媒體圖片樣式 */
+.social-item img {
+    width: 90px; /* 調整圖片大小 */
+    height: 90px;
+    object-fit: cover; /* 圖片等比例縮放 */
+}
+
+/* 社群媒體文字樣式 */
+.social-item p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+
+/* 手機樣式：讓選單佔滿螢幕 */
+@media (max-width: 768px) {
+    /* 封面調整 */
+    .header {
+        height: 100vh; /* 讓封面高度占滿整個手機螢幕 */
+        display: flex;
+        justify-content: center; /* 水平置中 */
+        align-items: center; /* 垂直置中 */
+        position: relative; /* 保持位置控制 */
+        overflow: hidden; /* 防止內容溢出 */
+    }
+
+    .cover-image {
+        width: 100%; /* 圖片寬度填滿螢幕 */
+        height: 100%; /* 圖片高度填滿螢幕 */
+        object-fit: cover; /* 確保圖片保持比例並裁剪過多部分 */
+    }
+
+    .title {
+        font-size: 1.5rem; /* 調整標題字體大小以適配手機 */
+        position: absolute; /* 確保標題置於圖片上方 */
+        top: 50%; /* 垂直居中 */
+        left: 50%; /* 水平居中 */
+        transform: translate(-50%, -50%); /* 修正定位，使標題真正居中 */
+        text-align: center; /* 標題文字置中 */
+        border: 1px; /* 添加些許內邊距，避免文字過於貼邊 */
+        line-height: 1.2; /* 增加文字行高，提升可讀性 */
+    }
+}
+@media (max-width: 768px) {
+    .side-menu {
+        width: 80%; /* 選單寬度為螢幕寬度 */
+    }
+
+    .side-menu a {
+        font-size: 1.2rem; /* 選單字體稍微縮小 */
+        padding: 10px 15px; /* 減少內邊距 */
+    }
+}
+
+/* 手機樣式 */
+@media (max-width: 768px) {
+    .subpage {
+        padding: 20px 0px 20px; /* 讓每個子元素佔滿寬度 */
+        width: 100%;
+    }
+
+    img.about-image, img.student-image {
+        max-width: 100%; /* 圖片佔滿容器寬度 */
+        margin: 10px 0; /* 減少上下間距 */
+    }
+    .subpage h2 {
+        font-size: 1.4rem; /* 減小標題字體大小 */
+    }
+    .divider {
+         margin: 35px;
+         width: 30%;
+    }
+    .subpage p {
+        font-size: 0.8rem; /* 減小段落和列表的字體大小 */
+        line-height: 1.4; /* 減少行間距 */
+    }
+    .subtopics h3 {
+        font-size: 1.2rem; /* 減小標題字體大小 */
+    }
+
+    .subtopics ul, .subtopics ul li {
+        font-size: 0.8rem; /* 減小段落和列表的字體大小 */
+        line-height: 1.4; /* 減少行間距 */
+    }
+}
+/* 手機樣式：將多欄內容改為單欄 */
+@media (max-width: 768px) {
+    .subtopics {
+        flex-direction: column; /* 改為垂直排列 */
+        align-items: stretch; /* 讓每個子元素佔滿寬度 */
+    }
+}
+
+@media (max-width: 768px) {
+    .social-media {
+       flex-direction: column; /* 改為垂直排列 */
+    }
+    .social-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-item p {
+        font-size: 0.8rem;
+        text-align: center
+    }
+}
