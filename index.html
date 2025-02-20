@@ -82,13 +82,6 @@
             </div>
         </div>
     </footer>
-    <!-- 側邊滑動選單 -->
-    <div id="menu" class="side-menu">
-        <!-- 連結到其他子網站 -->
-        <a href="about.html">關於我們</a>
-        <a href="students.html">禮賓學生專區</a>
-        <a href="links.html">重要連結</a>
-    </div>
 
     <script>
         // 控制選單滑動
@@ -97,25 +90,27 @@
             menu.classList.toggle("open");
         }
             
-        // 照片輪播邏輯
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-item');
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
+        // 照片輪播
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+
+            document.querySelector('.carousel-container').style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
             });
-            currentSlide = index;
         }
 
-        function nextSlide() {
-            showSlide((currentSlide + 1) % slides.length);
-        }
-
-        function prevSlide() {
-            showSlide((currentSlide - 1 + slides.length) % slides.length);
-        }
-
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                moveSlide(index - currentIndex);
+            });
+        });
         // 自動播放輪播
         setInterval(nextSlide, 5000);
             let currentIndex = 0;
