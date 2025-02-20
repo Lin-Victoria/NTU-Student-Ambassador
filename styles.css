@@ -44,35 +44,43 @@ body {
     outline: none;
 }
 
-/* 側邊滑動選單 */
+/* 側邊選單樣式 */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px;
-    width: 250px;
+    right: -300px; /* 初始在畫面外 */
     height: 100%;
-    background: #333;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.8);
     color: white;
-    overflow: hidden;
-    transition: left 0.3s ease-in-out;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
 }
 
 .side-menu.open {
-    left: 0;
+    right: 0; /* 點擊後滑入畫面 */
 }
 
+/* 選單連結樣式 */
 .side-menu a {
-    display: block;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-align: left;
+    transition: background 0.3s;
 }
 
 .side-menu a:hover {
-    background-color: #575757;
-    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* 滑鼠移上時的背景色變化 */
 }
+
 
 /* 照片輪播區 */
 .carousel {
