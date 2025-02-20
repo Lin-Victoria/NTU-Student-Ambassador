@@ -9,13 +9,14 @@
 <body>
     <!-- 固定標題區域 -->
     <div class="header">
-        <dive class="index-header">
+        <div class="index-header">
            <a href="index.html" class="logo-link">
                <img src="logo.png" alt="Logo" class="logo">
            </a>
             <button class="menu-icon" onclick="toggleMenu()">☰</button>
-        </dive>
+        </div>
     </div>
+
     
 <!-- 側邊滑動選單 -->
     <div id="menu" class="side-menu">
@@ -90,7 +91,6 @@
             menu.classList.toggle("open");
         }
             
-
         // 照片輪播
         let currentIndex = 0;
 
@@ -111,47 +111,8 @@
                 moveSlide(index - currentIndex);
             });
         });
-        // 自動播放輪播
-        setInterval(nextSlide, 5000);
-            let currentIndex = 0;
-       const carouselImages = document.querySelectorAll('.carousel-images img');
-       const indicators = document.querySelectorAll('.indicator');
-       let currentIndex = 0;
-
-       function showImage(index) {
-        // 隱藏所有圖片
-           carouselImages.forEach((img, i) => {
-               img.style.display = i === index ? 'block' : 'none';
-           });
-
-        // 更新點狀進度條
-           indicators.forEach((indicator, i) => {
-               indicator.classList.toggle('active', i === index);
-           });
-
-           currentIndex = index;
-       }
-
        // 自動輪播
-       function startCarousel() {
-           setInterval(() => {
-               const nextIndex = (currentIndex + 1) % carouselImages.length;
-               showImage(nextIndex);
-           }, 3000); // 每3秒切換
-       }
-
-       // 點擊點狀進度條
-       indicators.forEach(indicator => {
-           indicator.addEventListener('click', () => {
-               const index = parseInt(indicator.dataset.index, 10);
-               showImage(index);
-           });
-       });
-
-       // 初始化
-       showImage(currentIndex);
-       startCarousel();
-   
+       setInterval(() => moveSlide(1), 5000);   
     </script>
 </body>
 </html>
