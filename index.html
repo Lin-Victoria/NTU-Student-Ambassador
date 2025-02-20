@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>臺灣大學國際禮賓學生計畫</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- 固定標題區域 -->
     <div class="header">
-        <dive class="subpage-header">
-           <a href="index.html" class="logo-link">
-               <img src="logo.png" alt="Logo" class="logo">
-           </a>
-        </dive>
+        <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="Logo">
+        </a>
         <button class="menu-icon" onclick="toggleMenu()">☰</button>
-    </header>
+    </div>
+
+    <!-- 側邊滑動選單 -->
+    <div id="menu" class="side-menu">
+        <a href="about.html">關於我們</a>
+        <a href="students.html">禮賓學生專區</a>
+        <a href="links.html">重要連結</a>
+    </div>
 
     <!-- 照片輪播區 -->
     <div class="carousel">
@@ -26,41 +30,43 @@
                     <h1>臺灣大學國際禮賓學生計畫<br>Your Door To NTU</h1>
                 </div>
             </div>
-               <div class="carousel-slide"><img src="photo2.jpg" alt="Photo 2"></div>
-               <div class="carousel-slide"><img src="photo3.JPG" alt="Photo 3"></div>
-            <!-- 點狀進度條 -->
-            <div class="carousel-indicators">
-               <span class="indicator active" data-index="0"></span>
-               <span class="indicator" data-index="1"></span>
-               <span class="indicator" data-index="2"></span>
-           </div>
+            <div class="carousel-slide">
+                <img src="photo2.jpg" alt="Photo 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="photo3.JPG" alt="Photo 3">
+            </div>
         </div>
         <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="carousel-indicators">
+            <span class="indicator active" data-index="0"></span>
+            <span class="indicator" data-index="1"></span>
+            <span class="indicator" data-index="2"></span>
+        </div>
     </div>
 
     <!-- 最新消息 -->
-<div class="latest-news">
-    <div class="news-item">
-        <img src="news1.jpg" alt="最新消息圖片">
-        <div class="news-content">
-            <h3>最新消息標題 1</h3>
-            <p>這是最新消息的簡短描述，點擊進入了解更多資訊。</p>
-            <a href="news1.html">了解更多 &rarr;</a>
+    <div class="latest-news">
+        <div class="news-item">
+            <img src="news1.jpg" alt="最新消息圖片">
+            <div class="news-content">
+                <h3>最新消息標題 1</h3>
+                <p>這是最新消息的簡短描述，點擊進入了解更多資訊。</p>
+                <a href="news1.html">了解更多 &rarr;</a>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="news2.jpg" alt="最新消息圖片">
+            <div class="news-content">
+                <h3>最新消息標題 2</h3>
+                <p>這是最新消息的簡短描述，點擊進入了解更多資訊。</p>
+                <a href="news2.html">了解更多 &rarr;</a>
+            </div>
         </div>
     </div>
-    <div class="news-item">
-        <img src="news2.jpg" alt="最新消息圖片">
-        <div class="news-content">
-            <h3>最新消息標題 2</h3>
-            <p>這是最新消息的簡短描述，點擊進入了解更多資訊。</p>
-            <a href="news2.html">了解更多 &rarr;</a>
-        </div>
-    </div>
-    <!-- 繼續添加更多消息卡片 -->
-</div>
-    
-    <!-- 社群媒體與聯絡方式 -->
+
+    <!-- 聯絡方式 -->
     <footer class="footer">
         <div class="footer-content">
             <div class="contact-info">
@@ -70,17 +76,9 @@
             <div class="social-icons">
                 <a href="https://www.facebook.com/NTUOIASA" target="_blank"><img src="fb-icon.jpg" alt="Facebook"></a>
                 <a href="https://www.instagram.com/ntusa_ambassador/" target="_blank"><img src="ig-icon.jpg" alt="Instagram"></a>
-                <a href="https://oia.ntu.edu.tw/international-guests-scholars/student-ambassador-temp/student-ambassador-new" target="_blank"><img src="web-icon.jpg" alt="Website"></a>
             </div>
         </div>
     </footer>
-    <!-- 側邊滑動選單 -->
-    <div id="menu" class="side-menu">
-        <!-- 連結到其他子網站 -->
-        <a href="about.html">關於我們</a>
-        <a href="students.html">禮賓學生專區</a>
-        <a href="links.html">重要連結</a>
-    </div>
 
     <script>
         // 控制選單滑動
@@ -88,14 +86,8 @@
             const menu = document.getElementById("menu");
             menu.classList.toggle("open");
         }
-        let currentIndex = 0;
 
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            currentIndex = (currentIndex + direction + slides.length) % slides.length;
-            const container = document.querySelector('.carousel-container');
-            container.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
+        // 照片輪播
         let currentIndex = 0;
 
         function moveSlide(direction) {
@@ -103,23 +95,18 @@
             const indicators = document.querySelectorAll('.indicator');
             currentIndex = (currentIndex + direction + slides.length) % slides.length;
 
-            // 移動圖片
-            const container = document.querySelector('.carousel-container');
-            container.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.querySelector('.carousel-container').style.transform = `translateX(-${currentIndex * 100}%)`;
 
-            // 更新點狀進度條
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentIndex);
             });
-}
+        }
 
-// 初始化點狀進度條的點擊事件
-document.querySelectorAll('.indicator').forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        moveSlide(index - currentIndex);
-    });
-});
-
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                moveSlide(index - currentIndex);
+            });
+        });
     </script>
 </body>
 </html>
