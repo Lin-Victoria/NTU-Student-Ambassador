@@ -155,6 +155,21 @@ body {
     right: 10px;
 }
 
+.ntu-background {
+    height: 60vh;
+    background: url('ntu-campus.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.text-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    animation: fadeIn 2s;
+}
 .latest-news {
     margin: 20px auto;
     max-width: 1200px;
@@ -233,6 +248,17 @@ body {
     width: 30px;
     height: 30px;
     margin: 0 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 /* 固定標題區域樣式 */
@@ -415,22 +441,24 @@ ul li {
         position: relative; /* 保持位置控制 */
         overflow: hidden; /* 防止內容溢出 */
     }
-
-    .cover-image {
-        width: 100%; /* 圖片寬度填滿螢幕 */
-        height: 100%; /* 圖片高度填滿螢幕 */
-        object-fit: cover; /* 確保圖片保持比例並裁剪過多部分 */
+    .carousel {
+        position: relative;
+        margin-top: 20%; /* 避免被固定 header 遮住 */
+        width: 100%;
+        height: 50vh; /* 高度占視窗的 50% */
+        overflow: hidden;
     }
-
-    .title {
-        font-size: 1.5rem; /* 調整標題字體大小以適配手機 */
-        position: absolute; /* 確保標題置於圖片上方 */
-        top: 50%; /* 垂直居中 */
-        left: 50%; /* 水平居中 */
-        transform: translate(-50%, -50%); /* 修正定位，使標題真正居中 */
-        text-align: center; /* 標題文字置中 */
-        border: 1px; /* 添加些許內邊距，避免文字過於貼邊 */
-        line-height: 1.2; /* 增加文字行高，提升可讀性 */
+    .carousel-caption {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 1rem;
+        max-width: 90%; /* 限制標題文字寬度 */
     }
 }
 @media (max-width: 768px) {
