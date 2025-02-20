@@ -10,6 +10,7 @@ body {
 .header {
     position: relative;
     text-align: center;
+    background-color: rgb(143, 43, 42)；
 }
 
 /* 固定標題區域樣式 */
@@ -19,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     height: 100px;
-    background-color: #8a2a2b; /* 深藍背景色 */
+    background-color: rgb(143, 43, 42); /* 深藍背景色 */
     color: white;
     display: flex;
     align-items: center;
