@@ -1,126 +1,102 @@
 /* 基本樣式設定 */
+/* 全局樣式 */
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
 }
 
-/* 封面圖片及標題樣式 */
-header {
-    z-index: 10;
-    position: relative;
-    background: white; /* 確保背景不透明 */
-    padding: 10px 20px; /* 增加內邊距 */
-}
-/* 固定標題區域樣式 */
-.subpage-header {
-    position: fixed; /* 固定在頁面頂部 */
+/* 固定標題區域 */
+.header {
+    position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100px;
-    background-color: #8a2a2b; /* 深藍背景色 */
-    color: white;
+    background-color: #333;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 加陰影讓標題更突出 */
+    padding: 10px 20px;
     z-index: 1000;
 }
 
-/* 標誌樣式 */
-.logo-link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+.header .logo-link img {
+    height: 50px;
 }
 
-.logo {
-    height: 50px; /* 標誌高度 */
-    margin-right: 1px; /* 標誌與文字之間的距離 */
-}
-
-
-
-/* Menu icon 樣式 */
 .menu-icon {
-    margin-top: 70px; /* 確保輪播區域不會與 LOGO 重疊 */
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
+    font-size: 24px;
+    color: white;
     background: none;
     border: none;
-    color: white;
     cursor: pointer;
-    z-index: 1000;
 }
+
+.menu-icon:focus {
+    outline: none;
+}
+
+/* 側邊滑動選單 */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: white;
+    overflow: hidden;
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.side-menu a:hover {
+    background-color: #575757;
+    padding-left: 10px;
+}
+
 /* 照片輪播區 */
 .carousel {
-    position: relative;
+    margin-top: 80px; /* 避免被固定 header 遮住 */
     width: 100%;
-    height: 90%; /* 讓照片高度占視窗的三分之二 */
+    height: calc(2 / 3 * 100vh); /* 高度為螢幕高度的三分之二 */
     overflow: hidden;
+    position: relative;
 }
 
 .carousel-container {
     display: flex;
-    transition: transform 0.5s ease;
-    height: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
-    flex: 1 0 100%;
+    flex: 0 0 100%;
     position: relative;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .carousel-slide img {
-    max-width: 100%; /* 確保圖片寬度不超出 */
-    max-height: 100%; /* 確保圖片高度不超出 */
-    object-fit: contain; /* 讓圖片自適應比例，並完整顯示在範圍內 */
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    background-color: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.indicator.active {
-    background-color: #007bff; /* 選中狀態的顏色 */
-    transform: scale(1.2); /* 放大選中狀態 */
-}
-
-.indicator:hover {
-    background-color: #0056b3; /* 滑過時的顏色 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片充滿區域 */
 }
 
 .carousel-caption {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 20px;
+    left: 20px;
     color: white;
+    background: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    max-width: 80%; /* 限制標題文字寬度 */
+    border-radius: 5px;
 }
 
 .carousel-button {
@@ -130,10 +106,10 @@ header {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
+    font-size: 24px;
     padding: 10px;
     cursor: pointer;
     z-index: 10;
-    font-size: 1.5rem;
 }
 
 .carousel-button.prev {
@@ -144,75 +120,62 @@ header {
     right: 10px;
 }
 
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
 
+.indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.indicator.active {
+    background: #007bff;
+}
+
+/* 最新消息 */
 .latest-news {
-    margin: 20px auto;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    padding: 20px;
 }
 
 .news-item {
-    background: #f9f9f9;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.news-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .news-item img {
-    width: 100%;
-    height: 180px;
+    width: 150px;
+    height: 100px;
     object-fit: cover;
+    margin-right: 20px;
 }
 
-.news-item .news-content {
-    padding: 15px;
+.news-content {
+    flex-grow: 1;
 }
 
-.news-item h3 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    color: #333;
-}
-
-.news-item p {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.4;
-}
-
-.news-item a {
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.news-item a:hover {
-    text-decoration: underline;
-}
-
-/* 社群媒體與聯絡方式 */
+/* 聯絡方式 */
 .footer {
-    background: rgb(143, 42, 43);
+    background: #333;
     color: white;
-    padding: 20px 10px;
+    padding: 20px;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.footer a img {
+    width: 30px;
+    margin: 0 10px;
 }
+
 
 .contact-info p {
     margin: 5px 0;
@@ -241,41 +204,6 @@ header {
     z-index: 999;
 }
 
-.side-menu.open {
-    right: 0; /* 點擊後滑入畫面 */
-}
-
-/* 選單連結樣式 */
-.side-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    padding: 15px 20px;
-    margin: 5px 0;
-    text-align: left;
-    transition: background 0.3s;
-}
-
-.side-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* 滑鼠移上時的背景色變化 */
-}
-
-/* 固定標題區域樣式 */
-.subpage-header {
-    position: fixed; /* 固定在頁面頂部 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #8a2a2b; /* 深藍背景色 */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 加陰影讓標題更突出 */
-    z-index: 1000;
-}
 
 /* 標誌樣式 */
 .logo-link {
