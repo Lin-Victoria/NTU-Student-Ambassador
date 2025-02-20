@@ -96,7 +96,7 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 50vh; /* 高度占視窗的 50% */
+    height: 60vh; /* 高度占視窗的 50% */
     overflow: hidden;
 }
 
