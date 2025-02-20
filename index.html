@@ -15,7 +15,15 @@
            </a>
         </dive>
         <button class="menu-icon" onclick="toggleMenu()">☰</button>
-    </header>
+    </div>
+    
+<!-- 側邊滑動選單 -->
+    <div id="menu" class="side-menu">
+        <!-- 連結到其他子網站 -->
+        <a href="about.html">關於我們</a>
+        <a href="students.html">禮賓學生專區</a>
+        <a href="links.html">重要連結</a>
+    </div>
 
     <!-- 照片輪播區 -->
     <div class="carousel">
@@ -88,38 +96,67 @@
             const menu = document.getElementById("menu");
             menu.classList.toggle("open");
         }
-        let currentIndex = 0;
+            
+        // 照片輪播邏輯
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
 
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            currentIndex = (currentIndex + direction + slides.length) % slides.length;
-            const container = document.querySelector('.carousel-container');
-            container.style.transform = translateX(-${currentIndex * 100}%);
-        }
-        let currentIndex = 0;
-
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const indicators = document.querySelectorAll('.indicator');
-            currentIndex = (currentIndex + direction + slides.length) % slides.length;
-
-            // 移動圖片
-            const container = document.querySelector('.carousel-container');
-            container.style.transform = translateX(-${currentIndex * 100}%);
-
-            // 更新點狀進度條
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
             });
-}
+            currentSlide = index;
+        }
 
-// 初始化點狀進度條的點擊事件
-document.querySelectorAll('.indicator').forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        moveSlide(index - currentIndex);
-    });
-});
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
 
+        function prevSlide() {
+            showSlide((currentSlide - 1 + slides.length) % slides.length);
+        }
+
+        // 自動播放輪播
+        setInterval(nextSlide, 5000);
+            let currentIndex = 0;
+       const carouselImages = document.querySelectorAll('.carousel-images img');
+       const indicators = document.querySelectorAll('.indicator');
+       let currentIndex = 0;
+
+       function showImage(index) {
+        // 隱藏所有圖片
+           carouselImages.forEach((img, i) => {
+               img.style.display = i === index ? 'block' : 'none';
+           });
+
+        // 更新點狀進度條
+           indicators.forEach((indicator, i) => {
+               indicator.classList.toggle('active', i === index);
+           });
+
+           currentIndex = index;
+       }
+
+       // 自動輪播
+       function startCarousel() {
+           setInterval(() => {
+               const nextIndex = (currentIndex + 1) % carouselImages.length;
+               showImage(nextIndex);
+           }, 3000); // 每3秒切換
+       }
+
+       // 點擊點狀進度條
+       indicators.forEach(indicator => {
+           indicator.addEventListener('click', () => {
+               const index = parseInt(indicator.dataset.index, 10);
+               showImage(index);
+           });
+       });
+
+       // 初始化
+       showImage(currentIndex);
+       startCarousel();
+   
     </script>
 </body>
 </html>
