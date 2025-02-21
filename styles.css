@@ -227,7 +227,7 @@ body {
 
 /* 社群媒體與聯絡方式 */
 .footer {
-    background: rgb(143, 43, 42);
+    background: #161F28;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     color: white;
     padding: 20px 10px;
@@ -245,7 +245,7 @@ body {
 }
 
 .social-icons a img {
-    background: rgb(143, 43, 42);
+    background: #161F28;
     width: 30px;
     height: 30px;
     margin: 0 5px;
