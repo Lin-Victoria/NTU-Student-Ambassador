@@ -188,6 +188,12 @@ body {
     gap: 20px;
 }
 
+.news h2 {
+    margin: 0; /* 確保沒有多餘的距離 */
+    font-size: 2rem;
+    color: #8a2a2b;
+}
+
 .news-item {
     background: #f9f9f9;
     border-radius: 10px;
