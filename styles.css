@@ -189,6 +189,7 @@ body {
 .news-item:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideUp 1s;
 }
 
 .news-item img {
@@ -227,6 +228,7 @@ body {
 /* 社群媒體與聯絡方式 */
 .footer {
     background: rgb(143, 43, 42);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     color: white;
     padding: 20px 10px;
 }
