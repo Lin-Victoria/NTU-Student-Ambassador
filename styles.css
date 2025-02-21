@@ -162,6 +162,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    animation: fadeIn 2s;
 }
 .text-overlay {
     color: white;
@@ -189,7 +190,6 @@ body {
 .news-item:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    animation: slideUp 1s;
 }
 
 .news-item img {
