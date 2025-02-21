@@ -72,8 +72,15 @@
                 <a href="news2.html">了解更多 &rarr;</a>
             </div>
         </div>
-        <!-- 繼續添加更多消息卡片 -->
+        <div class="news-navigation">
+            <button class="news-arrow prev" onclick="moveNews(-1)">&#10094;</button>
+            <div class="progress-bar">
+                <span class="progress"></span>
+            </div>
+            <button class="news-arrow next" onclick="moveNews(1)">&#10095;</button>
+        </div>
     </section>
+        <!-- 繼續添加更多消息卡片 -->
     
     <!-- 社群媒體與聯絡方式 -->
     <footer class="footer">
@@ -90,35 +97,6 @@
         </div>
     </footer>
 
-    <script>
-        // 控制選單滑動
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("open");
-        }
-            
-        // 照片輪播
-        let currentIndex = 0;
-
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const indicators = document.querySelectorAll('.indicator');
-            currentIndex = (currentIndex + direction + slides.length) % slides.length;
-
-            document.querySelector('.carousel-container').style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        document.querySelectorAll('.indicator').forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                moveSlide(index - currentIndex);
-            });
-        });
-       // 自動輪播
-       setInterval(() => moveSlide(1), 5000);   
-    </script>
+ <script src="scripts.js"></script>
 </body>
 </html>
