@@ -243,38 +243,27 @@ body {
     text-decoration: underline;
 }
 
-/* 最新消息進度條與箭頭 */
+/* 最新消息圓點進度條 */
 .news-navigation {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     margin-top: 1rem;
-    position: relative;
 }
 
-.news-arrow {
-    color: black;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-}
-
-.progress-bar {
-    flex-grow: 1;
-    height: 5px;
+.news-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
     background: #ddd;
-    margin: 0 1rem;
-    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.progress-bar .progress {
-    width: 0%;
-    height: 100%;
+.news-dot.active {
     background: #007bff;
-    transition: width 0.3s ease;
 }
-
 
 /* 社群媒體與聯絡方式 */
 .footer {
