@@ -165,12 +165,18 @@ body {
     justify-content: center;
 }
 
+/* 淡入動畫 */
 .text-overlay h1 {
     color: white;
     font-size: 3rem;
     opacity: 0;
     transform: translateY(50px);
-    animation: fadeInUp 1.5s forwards;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.text-overlay h1.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes fadeInUp {
