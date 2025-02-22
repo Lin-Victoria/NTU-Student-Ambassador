@@ -99,82 +99,104 @@
             </div>
         </div>
     </footer>
+<script>
+    // 控制選單滑動
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("open");
+    }
 
-    <script>
-        // 控制選單滑動
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("open");
-        }
-            
-        // 照片輪播
-        let currentIndex = 0;
-        
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const indicators = document.querySelectorAll('.indicator');
+    // 照片輪播
+    let currentIndex = 0;
+
+    function moveSlide(direction) {
+        const slides = document.querySelectorAll(".carousel-slide");
+        const indicators = document.querySelectorAll(".indicator");
+
+        // 確保有輪播元素
+        if (slides.length > 0) {
             currentIndex = (currentIndex + direction + slides.length) % slides.length;
-        
-            document.querySelector('.carousel-container').style.transform = translateX(-${currentIndex * 100}%);
-        
+
+            // 更新輪播位置
+            const container = document.querySelector(".carousel-container");
+            container.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // 更新點狀進度條
             indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
+                indicator.classList.toggle("active", index === currentIndex);
             });
         }
-        
-        document.querySelectorAll('.indicator').forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                moveSlide(index - currentIndex);
-            });
+    }
+
+    // 點擊點狀進度條跳轉到對應輪播頁
+    document.querySelectorAll(".indicator").forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+            moveSlide(index - currentIndex);
         });
-        // 自動輪播
-        setInterval(() => moveSlide(1), 5000);   
-        // 台大背景區進入時觸發動畫
+    });
+
+    // 自動輪播
+    setInterval(() => moveSlide(1), 5000);
+
+    // 台大背景區進入時觸發動畫
+    const ntuSection = document.querySelector(".ntu-background");
+
+    if (ntuSection) {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.querySelector("h1").classList.add("fade-in");
+                        const target = entry.target.querySelector("h1");
+                        if (target) {
+                            target.classList.add("fade-in");
+                        }
                     }
                 });
             },
-            { threshold: 0.5 } // 當區塊 50% 進入畫面時觸發
+            { threshold: 0.5 } // 區塊 50% 可視時觸發
         );
-        
-        const ntuSection = document.querySelector(".ntu-background");
+
         observer.observe(ntuSection);
-        
-        // 最新消息圓點進度條與滑動效果
-        let currentNewsIndex = 0;
-        
-        function updateNews() {
-            const newsItems = document.querySelectorAll(".news-item");
-            const dots = document.querySelectorAll(".news-dot");
-        
+    }
+
+    // 最新消息圓點進度條與滑動效果
+    let currentNewsIndex = 0;
+
+    function updateNews() {
+        const newsItems = document.querySelectorAll(".news-item");
+        const dots = document.querySelectorAll(".news-dot");
+
+        if (newsItems.length > 0) {
             newsItems.forEach((item, index) => {
                 item.style.transform = `translateX(${(index - currentNewsIndex) * 100}%)`;
             });
-        
+
             dots.forEach((dot, index) => {
                 dot.classList.toggle("active", index === currentNewsIndex);
             });
         }
-        
-        function moveNews(direction) {
-            const newsItems = document.querySelectorAll(".news-item");
+    }
+
+    function moveNews(direction) {
+        const newsItems = document.querySelectorAll(".news-item");
+
+        if (newsItems.length > 0) {
             currentNewsIndex = (currentNewsIndex + direction + newsItems.length) % newsItems.length;
             updateNews();
         }
-        
-        document.querySelectorAll(".news-dot").forEach((dot, index) => {
-            dot.addEventListener("click", () => {
-                currentNewsIndex = index;
-                updateNews();
-            });
+    }
+
+    // 點擊圓點跳轉到對應消息
+    document.querySelectorAll(".news-dot").forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            currentNewsIndex = index;
+            updateNews();
         });
-        
-        // 初始化
-        updateNews();
-    </script>
+    });
+
+    // 初始化
+    updateNews();
+</script>
+
 </body>
 </html>
