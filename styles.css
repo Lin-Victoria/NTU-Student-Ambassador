@@ -188,7 +188,7 @@ body {
     gap: 20px;
 }
 
-.latest-news h2 {
+.news-caption {
     display: flex;
     flex-direction: column;
     align-items: center;
