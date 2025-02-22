@@ -187,13 +187,15 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-h2 {
+
+.latest-news h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 2rem;
     color: #8a2a2b;
 }
+
 .news-item {
     background: #f9f9f9;
     border-radius: 10px;
@@ -219,7 +221,7 @@ h2 {
 }
 
 .news-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 10px 0;
     color: #333;
 }
