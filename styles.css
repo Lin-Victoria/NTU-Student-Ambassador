@@ -251,24 +251,25 @@ body {
 
 /* 最新消息圓點進度條 */
 .news-navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
+    grid-column: 1 / -1; /* 讓進度條橫跨整個 grid */
+    justify-self: center; /* 水平置中 */
+    margin-top: 20px;
 }
 
+/* 調整進度條的外觀與位置 */
 .news-dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
+    width: 12px;
+    height: 12px;
+    margin: 0 8px; /* 增加間距 */
     border-radius: 50%;
-    background: #ddd;
+    background: #ccc;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .news-dot.active {
-    background: #007bff;
+    background: #8a2a2b; /* 符合配色 */
+    transform: scale(1.2); /* 高亮效果 */
 }
 
 /* 社群媒體與聯絡方式 */
