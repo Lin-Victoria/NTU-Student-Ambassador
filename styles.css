@@ -158,8 +158,9 @@ body {
 /* 台大背景區淡入效果 */
 .ntu-background {
     position: relative;
-    height: 100vh;
+    height: 50%;
     background: url('ntu.jpg') center/cover no-repeat;
+    transition: transform 1s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,14 +187,6 @@ body {
     }
 }
 
-.latest-news {
-    margin: 20px auto;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
 .news-caption {
     display: flex;
     flex-direction: column;
@@ -202,9 +195,19 @@ body {
     color: #8a2a2b;
 }
 
+.latest-news {
+    margin: 20px auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-rows: auto 50px; /* 確保進度條固定 */
+    gap: 20px;
+    overflow: hidden;
+}
+
 .news-wrapper {
     display: flex;
     overflow: hidden; /* 隱藏溢出的內容 */
+    transition: transform 0.5s ease-in-out;
     position: relative; /* 保持定位 */
 }
 
