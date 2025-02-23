@@ -202,7 +202,14 @@ body {
     color: #8a2a2b;
 }
 
+.news-wrapper {
+    display: flex;
+    overflow: hidden; /* 隱藏溢出的內容 */
+    position: relative; /* 保持定位 */
+}
+
 .news-item {
+    lex: 0 0 100%; /* 每個項目佔據 100% 的寬度 */
     background: #f9f9f9;
     border-radius: 10px;
     overflow: hidden;
