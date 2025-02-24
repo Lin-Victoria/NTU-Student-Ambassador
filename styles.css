@@ -207,8 +207,7 @@ body {
 }
 
 .news-item {
-    flex: 0 0 50%; /* 每次只顯示兩個項目 */
-    gap: 10%;
+    flex: 0 0 48%; /* 每次只顯示兩個項目 */
     min-height: 250px; /* 確保所有卡片高度一致 */
     background: #f9f9f9;
     border-radius: 10px;
@@ -221,6 +220,7 @@ body {
     display: flex;
     transition: transform 1s ease-in-out;
     overflow: hidden;
+    gap: 20px;
 }
 
 .news-item:hover {
@@ -309,11 +309,11 @@ body {
 }
 
 .left-arrow {
-    left: 10px;
+    left: -20px; /* 確保箭頭位置 */
 }
 
 .right-arrow {
-    right: 10px;
+    right: -20px;
 }
 
 /* 社群媒體與聯絡方式 */
