@@ -140,29 +140,8 @@
     
         // 自動輪播
         setInterval(() => moveSlide(1), 5000);
-    
-        // 台大背景區進入時觸發動畫
-        const ntuSection = document.querySelector(".ntu-background");
-    
-        if (ntuSection) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            const target = entry.target.querySelector("h1");
-                            if (target) {
-                                target.classList.add("fade-in");
-                            }
-                        }
-                    });
-                },
-                { threshold: 0.5 } // 區塊 50% 可視時觸發
-            );
-    
-            observer.observe(ntuSection);
-        }
-    
-        let currentIndex = 0;
+
+        // 最新消息
         const newsItems = document.querySelectorAll(".news-item");
         const wrapper = document.querySelector(".news-wrapper");
         const itemsToShow = 2; // 每次顯示的卡片數量
@@ -184,8 +163,6 @@
                 updateSlide(currentIndex + 1);
             }
         });
-
-
     
         // 初始化
         updateNews();
