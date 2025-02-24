@@ -108,50 +108,37 @@
             const menu = document.getElementById("menu");
             menu.classList.toggle("open");
         }
-    
-        // 照片輪播
-        let currentIndex = 0;
-    
+        
+        const slides = document.querySelectorAll(".carousel-slide");
+        const indicators = document.querySelectorAll(".indicator");
+        const wrapper = document.querySelector(".news-wrapper");
+        const newsItems = document.querySelectorAll(".news-item");
+        const itemsToShow = 2; // 每次顯示的卡片數量
+        const totalSlides = Math.ceil(newsItems.length / itemsToShow);
+        
+        // 更新輪播
         function moveSlide(direction) {
-            const slides = document.querySelectorAll(".carousel-slide");
-            const indicators = document.querySelectorAll(".indicator");
-    
-            // 確保有輪播元素
             if (slides.length > 0) {
                 currentIndex = (currentIndex + direction + slides.length) % slides.length;
-    
+        
                 // 更新輪播位置
                 const container = document.querySelector(".carousel-container");
                 container.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
+        
                 // 更新點狀進度條
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle("active", index === currentIndex);
                 });
             }
         }
-    
-        // 點擊點狀進度條跳轉到對應輪播頁
-        document.querySelectorAll(".indicator").forEach((indicator, index) => {
-            indicator.addEventListener("click", () => {
-                moveSlide(index - currentIndex);
-            });
-        });
-    
-        // 自動輪播
-        setInterval(() => moveSlide(1), 5000);
-
-        // 最新消息
-        const newsItems = document.querySelectorAll(".news-item");
-        const wrapper = document.querySelector(".news-wrapper");
-        const itemsToShow = 2; // 每次顯示的卡片數量
-        const totalSlides = Math.ceil(newsItems.length / itemsToShow);
         
+        // 初始化最新消息
         function updateSlide(index) {
             currentIndex = index;
             wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
         
+        // 最新消息左右箭頭控制
         document.querySelector(".left-arrow").addEventListener("click", () => {
             if (currentIndex > 0) {
                 updateSlide(currentIndex - 1);
@@ -163,9 +150,9 @@
                 updateSlide(currentIndex + 1);
             }
         });
-    
-        // 初始化
-        updateNews();
+        
+        // 自動輪播
+        setInterval(() => moveSlide(1), 5000);
     </script>
 </body>
 </html>
