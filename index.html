@@ -44,8 +44,8 @@
                <span class="indicator" data-index="2"></span>
            </div>
         </div>
-        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+        <button class="carousel-button prev">&#8250;</button>
+        <button class="carousel-button next">&#8250;</button>
     </div>
     
     <!-- Dynamic NTU Background Section -->
@@ -76,13 +76,14 @@
             </div>
         </div>
         <div class="news-navigation">
-            <button class="news-arrow prev" onclick="moveNews(-1)">&#10094;</button>
+            <button class="news-arrow left-arrow" onclick="moveNews(-1)">&#10094;</button>
             <div class="news-dots">
-                <span class="news-dot"></span>
-                <span class="news-dot"></span>
+                <div class="news-dot"></div>
+                <div class="news-dot active"></div>
+                <div class="news-dot"></div>
                 <!-- 對應每個消息項 -->
             </div>
-            <button class="news-arrow next" onclick="moveNews(1)">&#10095;</button>
+            <button class="news-arrow right-arrow" onclick="moveNews(1)">&#10095;</button>
         </div>
     </section>
         <!-- 繼續添加更多消息卡片 -->
@@ -161,40 +162,36 @@
             observer.observe(ntuSection);
         }
     
-        // 最新消息圓點進度條與滑動效果
-        let currentNewsIndex = 0;
-    
-        function updateNews() {
-            const newsItems = document.querySelectorAll(".news-item");
-            const dots = document.querySelectorAll(".news-dot");
-    
-            if (newsItems.length > 0) {
-                newsItems.forEach((item, index) => {
-                    item.style.transform = `translateX(${(index - currentNewsIndex) * 100}%)`;
-                });
-    
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle("active", index === currentNewsIndex);
-                });
-            }
-        }
-    
-        function moveNews(direction) {
-            const newsItems = document.querySelectorAll(".news-item");
-    
-            if (newsItems.length > 0) {
-                currentNewsIndex = (currentNewsIndex + direction + newsItems.length) % newsItems.length;
-                updateNews();
-            }
-        }
-    
-        // 點擊圓點跳轉到對應消息
-        document.querySelectorAll(".news-dot").forEach((dot, index) => {
-            dot.addEventListener("click", () => {
-                currentNewsIndex = index;
-                updateNews();
+        let currentIndex = 0;
+        const newsItems = document.querySelectorAll(".news-item");
+        const wrapper = document.querySelector(".news-wrapper");
+        const dots = document.querySelectorAll(".news-dot");
+        
+        function updateSlide(index) {
+            currentIndex = index;
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle("active", idx === currentIndex);
             });
+        }
+        
+        document.querySelector(".left-arrow").addEventListener("click", () => {
+            if (currentIndex > 0) {
+                updateSlide(currentIndex - 1);
+            }
         });
+        
+        document.querySelector(".right-arrow").addEventListener("click", () => {
+            if (currentIndex < newsItems.length - 1) {
+                updateSlide(currentIndex + 1);
+            }
+        });
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => updateSlide(index));
+        });
+
     
         // 初始化
         updateNews();
