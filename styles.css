@@ -208,6 +208,7 @@ body {
 
 .news-item {
     flex: 0 0 50%; /* 每次只顯示兩個項目 */
+    gap: 20px;
     min-height: 250px; /* 確保所有卡片高度一致 */
     background: #f9f9f9;
     border-radius: 10px;
@@ -265,6 +266,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+     flex-direction:row;
     margin-top: 1rem;
 }
 
@@ -272,7 +274,6 @@ body {
     width: 12px;
     height: 12px;
     margin: 0 8px;
-    flex-direction:row；
     border-radius: 50%;
     background: #ccc;
     cursor: pointer;
