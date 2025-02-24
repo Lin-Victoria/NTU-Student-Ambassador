@@ -201,9 +201,9 @@ body {
     margin: 20px auto;
     max-width: 1200px;
     display: grid;
-    grid-template-rows: auto 50px; /* 確保進度條固定 */
     gap: 20px;
-    overflow: hidden;
+    position: relative;
+    overflow: hidden; /* 防止內容溢出 */
 }
 
 .news-item {
