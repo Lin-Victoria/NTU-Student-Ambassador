@@ -44,8 +44,8 @@
                <span class="indicator" data-index="2"></span>
            </div>
         </div>
-        <button class="carousel-button prev">&#8250;</button>
-        <button class="carousel-button next">&#8250;</button>
+        <button class="carousel-button prev" onclick="moveNews(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="moveNews(-1)">&#10094;</button>
     </div>
     
     <!-- Dynamic NTU Background Section -->
@@ -76,14 +76,14 @@
             </div>
         </div>
         <div class="news-navigation">
-            <button class="news-arrow left-arrow" onclick="moveNews(-1)">&#10094;</button>
+            <button class="news-arrow left-arrow">&#8250;</button>
             <div class="news-dots">
                 <div class="news-dot"></div>
                 <div class="news-dot active"></div>
                 <div class="news-dot"></div>
                 <!-- 對應每個消息項 -->
             </div>
-            <button class="news-arrow right-arrow" onclick="moveNews(1)">&#10095;</button>
+            <button class="news-arrow right-arrow" >&#8250;</button>
         </div>
     </section>
         <!-- 繼續添加更多消息卡片 -->
