@@ -165,15 +165,12 @@
         let currentIndex = 0;
         const newsItems = document.querySelectorAll(".news-item");
         const wrapper = document.querySelector(".news-wrapper");
-        const dots = document.querySelectorAll(".news-dot");
+        const itemsToShow = 2; // 每次顯示的卡片數量
+        const totalSlides = Math.ceil(newsItems.length / itemsToShow);
         
         function updateSlide(index) {
             currentIndex = index;
             wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-            dots.forEach((dot, idx) => {
-                dot.classList.toggle("active", idx === currentIndex);
-            });
         }
         
         document.querySelector(".left-arrow").addEventListener("click", () => {
@@ -183,14 +180,11 @@
         });
         
         document.querySelector(".right-arrow").addEventListener("click", () => {
-            if (currentIndex < newsItems.length - 1) {
+            if (currentIndex < totalSlides - 1) {
                 updateSlide(currentIndex + 1);
             }
         });
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener("click", () => updateSlide(index));
-        });
+
 
     
         // 初始化
