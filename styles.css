@@ -207,7 +207,7 @@ body {
 }
 
 .news-item {
-    flex: 0 0 100%; /* 每次只顯示一個項目 */
+    flex: 0 0 50%; /* 每次只顯示兩個項目 */
     min-height: 250px; /* 確保所有卡片高度一致 */
     background: #f9f9f9;
     border-radius: 10px;
@@ -272,6 +272,7 @@ body {
     width: 12px;
     height: 12px;
     margin: 0 8px;
+    flex-direction:row；
     border-radius: 50%;
     background: #ccc;
     cursor: pointer;
