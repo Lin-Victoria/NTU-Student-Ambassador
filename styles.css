@@ -201,7 +201,6 @@ body {
     margin: 20px auto;
     max-width: 1200px;
     display: grid;
-    gap: 20px;
     position: relative;
     overflow: hidden; /* 防止內容溢出 */
 }
@@ -287,8 +286,9 @@ body {
 
 .news-arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 50%; /* 垂直居中 */
+    transform: translateY(-50%); /* 確保箭頭垂直中心對齊 */
+    z-index: 10; /* 確保箭頭位於卡片內容上方 */
     background: #8a2a2b;
     color: white;
     border: none;
@@ -300,7 +300,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
     transition: background 0.3s ease;
 }
 
@@ -309,11 +308,11 @@ body {
 }
 
 .left-arrow {
-    left: -20px; /* 確保箭頭位置 */
+    left: -20px; /* 左側箭頭位置 */
 }
 
 .right-arrow {
-    right: -20px;
+    right: -20px; /* 右側箭頭位置 */
 }
 
 /* 社群媒體與聯絡方式 */
