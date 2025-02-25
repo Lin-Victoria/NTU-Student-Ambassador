@@ -264,7 +264,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between; /* 箭頭與進度條之間保持空間 */
-    margin-top: 20px;
+    margin-top: 30px;
     gap: 30px; /* 箭頭與進度條間距 */
 }
 
