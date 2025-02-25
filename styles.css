@@ -264,7 +264,6 @@ body {
     display: flex;
     flex-direction: row; /* 改為水平方向排列 */
     justify-content: space-between;
-    align-items: center; /* 垂直居中 */
     gap: 10px; /* 增加箭頭與進度條的間距 */
     margin-top: 20px; /* 與內容區域的間距 */
 }
