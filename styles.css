@@ -205,7 +205,7 @@ body {
 }
 
 .news-item {
-    flex: 0 0 40%; /* 每次只顯示兩個項目 */
+    flex: 0 0 48%; /* 每次只顯示兩個項目 */
     min-height: 200px; /* 確保所有卡片高度一致 */
     background: #f9f9f9;
     border-radius: 10px;
