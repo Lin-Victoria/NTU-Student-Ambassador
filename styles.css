@@ -546,6 +546,12 @@ ul li {
     }
 }
 @media (max-width: 768px) {
+    .news-item {
+        flex: 0 0 100%; /* 每次只顯示一個項目 */
+        min-height: 200px; /* 確保所有卡片高度一致 */
+    }
+}
+@media (max-width: 768px) {
     .side-menu {
         width: 80%; /* 選單寬度為螢幕寬度 */
     }
