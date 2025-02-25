@@ -265,16 +265,14 @@ body {
     flex-direction: row; /* 改為水平方向排列 */
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
-    gap: 20px; /* 增加箭頭與進度條的間距 */
+    gap: 10px; /* 增加箭頭與進度條的間距 */
     margin-top: 20px; /* 與內容區域的間距 */
 }
 
 .news-dot {
     display: flex;
-    gap: 10px; /* 圓點之間的間距 */
     width: 12px;
     height: 12px;
-    margin: 0;
     border-radius: 50%;
     background: #ccc;
     cursor: pointer;
