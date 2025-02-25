@@ -140,6 +140,14 @@
                 });
             }
         }
+        // 自動輪播
+        setInterval(() => {
+            if (currentIndex < totalSlides - 1) {
+                updateSlide(currentIndex + 1);
+            } else {
+                updateSlide(0);
+            }
+        }, 5000); // 每 5 秒切換一次
     
         // 初始化最新消息
         function updateSlide(index) {
@@ -165,14 +173,6 @@
             }
         });
     
-        // 自動輪播
-        setInterval(() => {
-            if (currentIndex < totalSlides - 1) {
-                updateSlide(currentIndex + 1);
-            } else {
-                updateSlide(0);
-            }
-        }, 5000); // 每 5 秒切換一次
     </script>
 </body>
 </html>
