@@ -109,51 +109,70 @@
             const menu = document.getElementById("menu");
             menu.classList.toggle("open");
         }
-        let currentIndex = 0; // 只保留一個定義
+        let currentIndex = 0; // 用於追蹤目前的索引
         const slides = document.querySelectorAll(".carousel-slide");
         const indicators = document.querySelectorAll(".indicator");
         const wrapper = document.querySelector(".news-wrapper");
         const newsItems = document.querySelectorAll(".news-item");
         const itemsToShow = 1; // 每次顯示的卡片數量
         const totalSlides = Math.ceil(newsItems.length / itemsToShow);
-        
+    
+        // 更新點狀進度條
+        function updateDots(index) {
+            const dots = document.querySelectorAll(".news-dot");
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle("active", idx === index);
+            });
+        }
+    
         // 更新輪播
         function moveSlide(direction) {
             if (slides.length > 0) {
                 currentIndex = (currentIndex + direction + slides.length) % slides.length;
-        
+    
                 // 更新輪播位置
                 const container = document.querySelector(".carousel-container");
                 container.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
+    
                 // 更新點狀進度條
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle("active", index === currentIndex);
                 });
             }
         }
-        
+    
         // 初始化最新消息
         function updateSlide(index) {
             currentIndex = index;
             wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots(currentIndex); // 更新點狀進度條顏色
         }
-        
+    
         // 最新消息左右箭頭控制
         document.querySelector(".left-arrow").addEventListener("click", () => {
             if (currentIndex > 0) {
                 updateSlide(currentIndex - 1);
+            } else {
+                updateSlide(totalSlides - 1); // 如果到第一張，跳到最後一張
             }
         });
-        
+    
         document.querySelector(".right-arrow").addEventListener("click", () => {
             if (currentIndex < totalSlides - 1) {
                 updateSlide(currentIndex + 1);
+            } else {
+                updateSlide(0); // 如果到最後一張，跳到第一張
             }
         });
-        
+    
         // 自動輪播
-        setInterval(() => moveSlide(1), 5000);
+        setInterval(() => {
+            if (currentIndex < totalSlides - 1) {
+                updateSlide(currentIndex + 1);
+            } else {
+                updateSlide(0);
+            }
+        }, 5000); // 每 5 秒切換一次
     </script>
 </body>
 </html>
