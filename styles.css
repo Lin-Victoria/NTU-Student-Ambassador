@@ -262,14 +262,20 @@ body {
 /* 最新消息圓點進度條 */
 .news-navigation {
     display: flex;
-    flex-direction: row; /* 改為水平方向排列 */
-    justify-content: space-between;
-    gap: 10px; /* 增加箭頭與進度條的間距 */
-    margin-top: 20px; /* 與內容區域的間距 */
+    align-items: center;
+    justify-content: space-between; /* 箭頭與進度條之間保持空間 */
+    margin-top: 20px;
+    gap: 30px; /* 箭頭與進度條間距 */
+}
+
+.news-dots {
+    display: flex;
+    gap: 12px; /* 圓點之間的水平間距 */
+    justify-content: center;
+    align-items: center;
 }
 
 .news-dot {
-    display: flex;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -280,8 +286,9 @@ body {
 
 .news-dot.active {
     background: #8a2a2b;
-    transform: scale(1.2);
+    transform: scale(1.2); /* 突出顯示激活的圓點 */
 }
+
 .news-arrow {
     background: #8a2a2b;
     color: white;
