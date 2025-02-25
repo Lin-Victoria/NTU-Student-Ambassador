@@ -303,11 +303,11 @@ body {
 }
 
 .left-arrow {
-    left: -18px; /* 左側箭頭位置 */
+    left: -15px; /* 左側箭頭位置 */
 }
 
 .right-arrow {
-    right: -18px; /* 右側箭頭位置 */
+    right: -15px; /* 右側箭頭位置 */
 }
 
 /* 社群媒體與聯絡方式 */
