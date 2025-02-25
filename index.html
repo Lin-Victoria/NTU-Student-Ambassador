@@ -124,6 +124,30 @@
                 dot.classList.toggle("active", idx === index);
             });
         }
+        // 初始化最新消息
+        function updateSlide(index) {
+            currentIndex = index;
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots(currentIndex); // 更新點狀進度條顏色
+        }
+    
+        // 最新消息左右箭頭控制
+        document.querySelector(".left-arrow").addEventListener("click", () => {
+            if (currentIndex > 0) {
+                updateSlide(currentIndex - 1);
+            } else {
+                updateSlide(totalSlides - 1); // 如果到第一張，跳到最後一張
+            }
+        });
+    
+        document.querySelector(".right-arrow").addEventListener("click", () => {
+            if (currentIndex < totalSlides - 1) {
+                updateSlide(currentIndex + 1);
+            } else {
+                updateSlide(0); // 如果到最後一張，跳到第一張
+            }
+        });
+    
     
         // 更新輪播
         function moveSlide(direction) {
@@ -148,30 +172,6 @@
                 updateSlide(0);
             }
         }, 5000); // 每 5 秒切換一次
-    
-        // 初始化最新消息
-        function updateSlide(index) {
-            currentIndex = index;
-            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots(currentIndex); // 更新點狀進度條顏色
-        }
-    
-        // 最新消息左右箭頭控制
-        document.querySelector(".left-arrow").addEventListener("click", () => {
-            if (currentIndex > 0) {
-                updateSlide(currentIndex - 1);
-            } else {
-                updateSlide(totalSlides - 1); // 如果到第一張，跳到最後一張
-            }
-        });
-    
-        document.querySelector(".right-arrow").addEventListener("click", () => {
-            if (currentIndex < totalSlides - 1) {
-                updateSlide(currentIndex + 1);
-            } else {
-                updateSlide(0); // 如果到最後一張，跳到第一張
-            }
-        });
     
     </script>
 </body>
