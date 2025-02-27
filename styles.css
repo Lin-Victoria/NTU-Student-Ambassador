@@ -546,34 +546,9 @@ ul li {
     font-size: 1rem;
     padding: 10px;
     margin: 5px;
-}
-
-/* 社群媒體區塊 */
-.social-media {
-    display: flex; /* 使用 Flexbox 讓圖示並排 */
-    width: 100%;
-    gap: 1px; /* 圖示之間的間距 */
-    margin-top: 40px; /* 與上方內容的距離 */
-}
-
-/* 單個社群媒體項目 */
-.social-item {
-    text-align: center ;
-}
-
-/* 社群媒體圖片樣式 */
-.social-item img {
-    width: 90px; /* 調整圖片大小 */
-    height: 90px;
-    object-fit: cover; /* 圖片等比例縮放 */
-}
-
-/* 社群媒體文字樣式 */
-.social-item p {
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #333;
-    font-weight: bold;
+    background: #8a2a2b;
+    color: white;
+    border-radius: 10%;
 }
 
 
