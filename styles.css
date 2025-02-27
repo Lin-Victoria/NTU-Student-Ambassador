@@ -5,21 +5,16 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
 }
-/* 滾動淡入效果 */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+.header, .news-caption, .news-wrapper, .footer {
+    opacity: 0; /* 初始透明 */
+    transform: translateY(20px); /* 初始向下偏移 */
+    animation: fadeIn 1s ease-out forwards;
 }
 /* 封面圖片及標題樣式 */
 .header {
     position: relative;
     text-align: center;
+    animation-delay: 0.2s;
 }
 
 /* 固定標題區域樣式 */
@@ -209,6 +204,7 @@ body {
     align-items: center;
     font-size: 1.5rem; 
     color: #8a2a2b;
+    animation-delay: 0.8s;
 }
 
 .latest-news {
@@ -231,6 +227,7 @@ body {
 
 .news-wrapper {
     display: flex;
+    animation-delay: 1s;
     transition: transform 1s ease-in-out;
     overflow: hidden;
     gap: 30px;
