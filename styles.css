@@ -5,11 +5,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
 }
-.header, .news-caption, .news-wrapper, .footer {
-    opacity: 0; /* 初始透明 */
-    transform: translateY(20px); /* 初始向下偏移 */
-    animation: fadeIn 1s ease-out forwards;
-}
+
 /* 封面圖片及標題樣式 */
 .header {
     position: relative;
