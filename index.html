@@ -109,70 +109,76 @@
             const menu = document.getElementById("menu");
             menu.classList.toggle("open");
         }
-        let currentIndex = 0; // 用於追蹤目前的索引
-        const slides = document.querySelectorAll(".carousel-slide");
-        const indicators = document.querySelectorAll(".indicator");
-        const wrapper = document.querySelector(".news-wrapper");
-        const newsItems = document.querySelectorAll(".news-item");
-        const itemsToShow = 1; // 每次顯示的卡片數量
-        const totalSlides = Math.ceil(newsItems.length / itemsToShow);
+        // 廣告區 (自動播放和箭頭控制)
+        let adCurrentIndex = 0; // 廣告區目前索引
+        const adSlides = document.querySelectorAll(".carousel-slide");
+        const adIndicators = document.querySelectorAll(".indicator");
     
-        // 更新點狀進度條
-        function updateDots(index) {
-            const dots = document.querySelectorAll(".news-dot");
-            dots.forEach((dot, idx) => {
+        // 更新廣告進度條
+        function updateAdDots(index) {
+            adIndicators.forEach((indicator, idx) => {
+                indicator.classList.toggle("active", idx === index);
+            });
+        }
+    
+        // 廣告區更新輪播
+        function moveAdSlide(direction) {
+            if (adSlides.length > 0) {
+                adCurrentIndex = (adCurrentIndex + direction + adSlides.length) % adSlides.length;
+    
+                // 更新輪播位置
+                const adContainer = document.querySelector(".carousel-container");
+                adContainer.style.transform = `translateX(-${adCurrentIndex * 100}%)`;
+    
+                // 更新點狀進度條
+                updateAdDots(adCurrentIndex);
+            }
+        }
+    
+        // 廣告區左右箭頭控制
+        document.querySelector(".prev").addEventListener("click", () => moveAdSlide(-1));
+        document.querySelector(".next").addEventListener("click", () => moveAdSlide(1));
+    
+        // 廣告區自動播放
+        setInterval(() => moveAdSlide(1), 5000);
+    
+        // 最新消息區 (只要箭頭功能和進度條)
+        let newsCurrentIndex = 0; // 最新消息目前索引
+        const newsWrapper = document.querySelector(".news-wrapper");
+        const newsItems = document.querySelectorAll(".news-item");
+        const newsDots = document.querySelectorAll(".news-dot");
+        const newsTotalSlides = Math.ceil(newsItems.length / 1); // 每次顯示 1 張
+    
+        // 更新最新消息進度條
+        function updateNewsDots(index) {
+            newsDots.forEach((dot, idx) => {
                 dot.classList.toggle("active", idx === index);
             });
         }
-        // 初始化最新消息
-        function updateSlide(index) {
-            currentIndex = index;
-            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots(currentIndex); // 更新點狀進度條顏色
+    
+        // 最新消息更新輪播
+        function updateNewsSlide(index) {
+            newsCurrentIndex = index;
+            newsWrapper.style.transform = `translateX(-${newsCurrentIndex * 100}%)`;
+            updateNewsDots(newsCurrentIndex);
         }
     
         // 最新消息左右箭頭控制
         document.querySelector(".left-arrow").addEventListener("click", () => {
-            if (currentIndex > 0) {
-                updateSlide(currentIndex - 1);
+            if (newsCurrentIndex > 0) {
+                updateNewsSlide(newsCurrentIndex - 1);
             } else {
-                updateSlide(totalSlides - 1); // 如果到第一張，跳到最後一張
+                updateNewsSlide(newsTotalSlides - 1); // 如果到第一張，跳到最後一張
             }
         });
     
         document.querySelector(".right-arrow").addEventListener("click", () => {
-            if (currentIndex < totalSlides - 1) {
-                updateSlide(currentIndex + 1);
+            if (newsCurrentIndex < newsTotalSlides - 1) {
+                updateNewsSlide(newsCurrentIndex + 1);
             } else {
-                updateSlide(0); // 如果到最後一張，跳到第一張
+                updateNewsSlide(0); // 如果到最後一張，跳到第一張
             }
         });
-    
-    
-        // 更新輪播
-        function moveSlide(direction) {
-            if (slides.length > 0) {
-                currentIndex = (currentIndex + direction + slides.length) % slides.length;
-    
-                // 更新輪播位置
-                const container = document.querySelector(".carousel-container");
-                container.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
-                // 更新點狀進度條
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle("active", index === currentIndex);
-                });
-            }
-        }
-        // 自動輪播
-        setInterval(() => {
-            if (currentIndex < totalSlides - 1) {
-                updateSlide(currentIndex + 1);
-            } else {
-                updateSlide(0);
-            }
-        }, 5000); // 每 5 秒切換一次
-    
     </script>
 </body>
 </html>
