@@ -357,6 +357,7 @@ body {
 
 /* 整體新聞頁面的樣式 */
 .newspage {
+  height: 90%; 
   max-width: 800px; /* 控制內容寬度 */
   margin: 0 auto; /* 居中顯示 */
   padding: 20px; /* 四周留空間 */
@@ -370,13 +371,6 @@ body {
   font-weight: bold;
   margin-bottom: 10px; /* 與分隔線留間距 */
   color: #333;
-}
-
-/* 分隔線樣式 */
-.newspage .divider {
-  height: 2px;
-  background-color: #ccc;
-  margin: 10px 0;
 }
 
 /* 副標題樣式 */
