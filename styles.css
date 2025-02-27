@@ -354,6 +354,60 @@ body {
     margin: 0 5px;
 }
 
+
+/* 整體新聞頁面的樣式 */
+.newspage {
+  max-width: 800px; /* 控制內容寬度 */
+  margin: 0 auto; /* 居中顯示 */
+  padding: 20px; /* 四周留空間 */
+  font-family: Arial, sans-serif; /* 字體樣式 */
+  line-height: 1.6; /* 增加行間距 */
+}
+
+/* 標題樣式 */
+.newspage h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px; /* 與分隔線留間距 */
+  color: #333;
+}
+
+/* 分隔線樣式 */
+.newspage .divider {
+  height: 2px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+/* 副標題樣式 */
+.newspage .subtopics ul {
+  list-style: none; /* 移除預設的項目符號 */
+  padding: 0; /* 移除內邊距 */
+  margin-bottom: 20px; /* 每段 ul 留空間 */
+}
+
+/* 每個 ul 的標題樣式 */
+.newspage .subtopics ul:first-child {
+  font-weight: bold;
+}
+
+/* li 樣式 */
+.newspage .subtopics li {
+  margin-left: 20px; /* 每個子項目縮排 */
+  list-style: disc; /* 使用圓點作為符號 */
+  margin-bottom: 10px; /* 每個項目間距 */
+}
+
+/* 鏈接樣式 */
+.newspage .subtopics a {
+  color: #007bff; /* 使用藍色字體 */
+  text-decoration: none; /* 移除底線 */
+}
+
+.newspage .subtopics a:hover {
+  text-decoration: underline; /* 滑過時增加底線 */
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
