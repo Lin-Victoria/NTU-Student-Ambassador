@@ -132,7 +132,7 @@ body {
     border-radius: 10px;
     font-size: 1.5rem;
     max-width: 80%; /* 限制標題文字寬度 */
-    transition: opacity 1s ease, transform 1s ease;
+    transition: transform 1s ease-in-out;
 }
 
 .carousel-button {
@@ -550,6 +550,9 @@ ul li {
         flex: 0 0 100%; /* 每次只顯示一個項目 */
         min-height: 200px; /* 確保所有卡片高度一致 */
     }
+    .latest-news {
+        max-width: 100%;
+     }
 }
 @media (max-width: 768px) {
     .side-menu {
