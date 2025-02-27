@@ -5,7 +5,17 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
 }
+/* 滾動淡入效果 */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 /* 封面圖片及標題樣式 */
 .header {
     position: relative;
@@ -132,7 +142,9 @@ body {
     border-radius: 10px;
     font-size: 1.5rem;
     max-width: 80%; /* 限制標題文字寬度 */
-    transition: transform 1s ease-in-out;
+    opacity: 0; /* 初始透明 */
+    animation: fadeIn 1s ease-out forwards; /* 1秒淡入動畫 */
+    animation-delay: 0.5s; /* 延遲0.5秒啟動 */
 }
 
 .carousel-button {
@@ -181,13 +193,16 @@ body {
     transform: translateY(0);
 }
 
-@keyframes fadeInUp {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* 從稍微下方滑入 */
+    }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 .news-caption {
     display: flex;
     flex-direction: column;
