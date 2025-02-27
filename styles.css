@@ -10,7 +10,6 @@ body {
 .header {
     position: relative;
     text-align: center;
-    animation-delay: 0.2s;
 }
 
 /* 固定標題區域樣式 */
