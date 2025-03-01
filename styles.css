@@ -541,8 +541,13 @@ ul li {
 .subpage form {
     margin-top: 20px;
 }
+.subpage input{
+    font-size: 1rem;
+    padding: 10px;
+    margin: 5px;
+}
 
-.subpage input, .subpage button {
+.subpage button {
     font-size: 1rem;
     padding: 10px;
     margin: 5px;
