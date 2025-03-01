@@ -579,9 +579,15 @@ ul li {
         font-size: 0.6rem;
         max-width: 90%; /* 限制標題文字寬度 */
     }
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        font-size: 0.6rem;
+    }
 }
 @media (max-width: 768px) {
     .news-item {
+        flex-direction: column;
         flex: 0 0 100%; /* 每次只顯示一個項目 */
         min-height: 200px; /* 確保所有卡片高度一致 */
     }
