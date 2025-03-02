@@ -587,12 +587,12 @@ ul li {
 }
 @media (max-width: 768px) {
     .news-item {
-        flex-direction: column;
         flex: 0 0 100%; /* 每次只顯示一個項目 */
         min-height: 200px; /* 確保所有卡片高度一致 */
     }
     .latest-news {
         max-width: 100%;
+        flex-direction: column;
      }
 }
 @media (max-width: 768px) {
