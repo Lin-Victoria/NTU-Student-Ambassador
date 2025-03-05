@@ -586,7 +586,7 @@ ul li {
     }
 }
 @media (max-width: 768px) {
-    .latest-news {
+    .news-wrapper {
         display: flex;
         flex-direction: column;
         gap: 20px;
