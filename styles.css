@@ -207,8 +207,6 @@ body {
     max-width: 1200px;
     display: grid;
     position: relative;
-    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); /* 兩欄排列 */
-    gap: 30px; /* 卡片之間的間距 */
     overflow: hidden; /* 防止內容溢出 */
 }
 
@@ -589,12 +587,14 @@ ul li {
 }
 @media (max-width: 768px) {
     .latest-news {
-        grid-template-columns: 1fr; /* 改為單欄垂直排列 */
-        gap: 20px; /* 減少間距 */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .news-item {
         min-height: auto; /* 自動調整高度 */
+        width:100%;
         flex: 1; /* 確保卡片撐滿容器 */
     }
 }
